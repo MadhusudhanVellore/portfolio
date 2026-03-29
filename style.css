@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --accent-lime: #c1ff72;
+  --bg-dark: #050505;
+  --card-dark: #121212;
+}
+
+.grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.accent-line {
+  height: 0.25rem;
+  width: 4rem;
+  background-color: #c1ff72;
+  border-radius: 9999px;
+}
+
+.card-hover {
+  transition: all 0.3s duration-300;
+}
+
+.card-hover:hover {
+  border-color: rgba(193, 255, 114, 0.5);
+  background-color: #1a1a1a;
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+.fade-in-right {
+  animation: fadeInRight 0.6s ease-out forwards;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
