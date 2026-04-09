@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>madhu-portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Michroma&display=swap" rel="stylesheet">
     <!-- Tailwind Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
@@ -14,6 +17,7 @@
                     fontFamily: {
                         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
                         mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                        terminal: ['Michroma', 'sans-serif'],
                     },
                 }
             }
@@ -69,11 +73,11 @@
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c1ff72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-workflow"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg></div>
-                            <div><h3 class="font-bold text-lg mb-1">Infrastructure as Code: <span class="font-normal text-white/60">Terraform and Ansible for automation.</span></h3></div>
+                            <div><h3 class="font-bold text-lg mb-1">Infrastructure as Code: <span class="font-normal text-white/60">Ansible for automation.</span></h3></div>
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c1ff72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud"><path d="M17.5 19c2.5 0 4.5-2 4.5-4.5 0-2.3-1.7-4.2-4-4.5a7 7 0 1 0-13.5 3c-2.1.4-3.5 2.3-3.5 4.5 0 2.5 2 4.5 4.5 4.5h12Z"/></svg></div>
-                            <div><h3 class="font-bold text-lg mb-1">Cloud Networking: <span class="font-normal text-white/60">AWS VPC design and management.</span></h3></div>
+                            <div><h3 class="font-bold text-lg mb-1">Cloud Networking: <span class="font-normal text-white/60">Cloud design and management.</span></h3></div>
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c1ff72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-container"><path d="M22 7.7c0-.6-.4-1.2-.8-1.5l-6.3-3.9c-.5-.3-1.2-.3-1.8 0l-6.3 3.9c-.4.3-.8.9-.8 1.5v8.6c0 .6.4 1.2.8 1.5l6.3 3.9c.5.3 1.2.3 1.8 0l6.3-3.9c.4-.3.8-.9.8-1.5V7.7Z"/><path d="M3.2 7.1 12 12.5l8.8-5.4"/><path d="M12 22.5V12.5"/></svg></div>
@@ -90,7 +94,7 @@
                         </div>
                         
                         <div class="group">
-                            <a href="#" class="flex items-center gap-3 text-white hover:text-[#c1ff72] transition-colors text-sm font-bold uppercase tracking-widest">
+                            <a href="https://www.linkedin.com/in/v-madhusudhan-b1b403350" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-white hover:text-[#c1ff72] transition-colors text-sm font-bold uppercase tracking-widest">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn
                             </a>
                             <div class="h-1 w-8 bg-[#c1ff72] mt-2 group-hover:w-full transition-all duration-300"></div>
@@ -105,31 +109,95 @@
                     </div>
                 </div>
 
-                <!-- Right Side: Large Cards -->
-                <div class="space-y-6">
-                    <div class="bg-[#121212] border border-white/5 rounded-2xl p-10 flex items-center justify-start px-12 gap-8 card-hover group fade-in-right" style="animation-delay: 0.3s">
-                        <div class="group-hover:scale-110 transition-transform duration-300 text-[#c1ff72]">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+                <!-- Right Side: Terminal Skills -->
+                <div class="fade-in-right" style="animation-delay: 0.3s">
+                    <div class="bg-[#121212] border border-white/5 rounded-2xl overflow-hidden font-sans shadow-[0_0_15px_rgba(255,255,255,0.02)]">
+                        <!-- Terminal Header -->
+                        <div class="bg-white/5 border-b border-white/5 px-4 py-3 flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                            <span class="ml-2 text-white/40 text-xs font-sans">madhu@network-engineer:~</span>
                         </div>
-                        <h2 class="text-2xl font-bold tracking-wide uppercase">Network Automation</h2>
-                    </div>
-                    <div class="bg-[#121212] border border-white/5 rounded-2xl p-10 flex items-center justify-start px-12 gap-8 card-hover group fade-in-right" style="animation-delay: 0.4s">
-                        <div class="group-hover:scale-110 transition-transform duration-300 text-[#c1ff72]">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-terminal"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+                        <!-- Terminal Body -->
+                        <div class="p-6 text-white/60 text-sm md:text-base leading-relaxed">
+                            <p class="mb-4"><span class="font-sans text-[#c1ff72]">madhu@network-engineer</span><span class="font-sans text-white">:</span><span class="font-sans text-blue-400">~</span><span class="font-sans text-white">$</span> tree skills</p>
+                            <ul class="space-y-1 list-none pl-0">
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500">├──</span> <span class="text-blue-400 font-semibold">Network Automation</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Python</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Ansible</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Nmap</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Wireshark</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">│   └──</span> <span class="text-green-400">Network Automation</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500">├──</span> <span class="text-blue-400 font-semibold">Linux System Admin</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Linux</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">│   └──</span> <span class="text-green-400">Ansible</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500">├──</span> <span class="text-blue-400 font-semibold">Web Scraping</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Python</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Requests</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">BeautifulSoup</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Scrapy</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">│   └──</span> <span class="text-green-400">Playwrights</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500">├──</span> <span class="text-blue-400 font-semibold">Network Troubleshooting</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500">├──</span> <span class="text-blue-400 font-semibold">CI/CD Pipelines</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">│   └──</span> <span class="text-green-400">GitHub Actions</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500">├──</span> <span class="text-blue-400 font-semibold">Containerization</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Docker</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">│   └──</span> <span class="text-green-400">Kubernetes</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500">└──</span> <span class="text-blue-400 font-semibold">Version Control</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">    ├──</span> <span class="text-green-400">Git</span>
+                                </li>
+                                <li class="transition-colors cursor-default flex items-center gap-2">
+                                    <span class="text-gray-500 whitespace-pre">    └──</span> <span class="text-green-400">GitHub</span>
+                                </li>
+                            </ul>
+                            <p class="mt-4 text-[#c1ff72] font-sans animate-blink">_</p>
                         </div>
-                        <h2 class="text-2xl font-bold tracking-wide uppercase">Linux System Admin</h2>
-                    </div>
-                    <div class="bg-[#121212] border border-white/5 rounded-2xl p-10 flex items-center justify-start px-12 gap-8 card-hover group fade-in-right" style="animation-delay: 0.5s">
-                        <div class="group-hover:scale-110 transition-transform duration-300 text-[#c1ff72]">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-workflow"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>
-                        </div>
-                        <h2 class="text-2xl font-bold tracking-wide uppercase">CI/CD Pipelines</h2>
-                    </div>
-                    <div class="bg-[#121212] border border-white/5 rounded-2xl p-10 flex items-center justify-start px-12 gap-8 card-hover group fade-in-right" style="animation-delay: 0.6s">
-                        <div class="group-hover:scale-110 transition-transform duration-300 text-[#c1ff72]">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-container"><path d="M22 7.7c0-.6-.4-1.2-.8-1.5l-6.3-3.9c-.5-.3-1.2-.3-1.8 0l-6.3 3.9c-.4.3-.8.9-.8 1.5v8.6c0 .6.4 1.2.8 1.5l6.3 3.9c.5.3 1.2.3 1.8 0l6.3-3.9c.4-.3.8-.9.8-1.5V7.7Z"/><path d="M3.2 7.1 12 12.5l8.8-5.4"/><path d="M12 22.5V12.5"/></svg>
-                        </div>
-                        <h2 class="text-2xl font-bold tracking-wide uppercase">Containerization</h2>
                     </div>
                 </div>
             </div>
@@ -166,14 +234,6 @@
                         GitHub Actions
                     </div>
                     <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-box group-hover:scale-110 transition-transform"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
-                        Terraform
-                    </div>
-                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud group-hover:scale-110 transition-transform"><path d="M17.5 19c2.5 0 4.5-2 4.5-4.5 0-2.3-1.7-4.2-4-4.5a7 7 0 1 0-13.5 3c-2.1.4-3.5 2.3-3.5 4.5 0 2.5 2 4.5 4.5 4.5h12Z"/></svg>
-                        AWS VPC
-                    </div>
-                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code group-hover:scale-110 transition-transform"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                         Python
                     </div>
@@ -184,6 +244,18 @@
                     <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu group-hover:scale-110 transition-transform"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
                         Network Automation
+                    </div>
+                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search group-hover:scale-110 transition-transform"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        Nmap
+                    </div>
+                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity group-hover:scale-110 transition-transform"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        Wireshark
+                    </div>
+                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe group-hover:scale-110 transition-transform"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                        Web Scraping
                     </div>
                 </div>
             </section>
