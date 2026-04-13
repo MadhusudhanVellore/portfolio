@@ -71,3 +71,41 @@
 .animate-blink {
   animation: blink 1s step-end infinite;
 }
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-slow-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.orbit-1 {
+  animation: spin-slow 25s linear infinite;
+}
+.orbit-1-icon {
+  animation: spin-slow-reverse 25s linear infinite;
+}
+
+.orbit-2 {
+  animation: spin-slow-reverse 35s linear infinite;
+}
+.orbit-2-icon {
+  animation: spin-slow 35s linear infinite;
+}
+
+.orbit-3 {
+  animation: spin-slow 50s linear infinite;
+}
+.orbit-3-icon {
+  animation: spin-slow-reverse 50s linear infinite;
+}
+
+.orbit-4 {
+  animation: spin-slow-reverse 65s linear infinite;
+}
+.orbit-4-icon {
+  animation: spin-slow 65s linear infinite;
+}

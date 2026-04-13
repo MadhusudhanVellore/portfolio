@@ -33,9 +33,11 @@
                     <path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.2 2.4c.1.2.2.4.2.6V20a1 1 0 0 1-1 1H3.6a1 1 0 0 1-1-1v-1c0-.2.1-.4.2-.6L4 16" />
                 </svg>
             </div>
+            
+            <!-- Desktop Nav -->
             <nav class="hidden md:flex gap-10 text-sm font-bold text-white uppercase tracking-widest">
                 <div class="group">
-                    <a href="#about" class="hover:text-[#c1ff72] transition-colors">About</a>
+                    <a href="#about" id="about-link" class="hover:text-[#c1ff72] transition-colors cursor-pointer">About</a>
                     <div class="h-1 w-8 bg-[#c1ff72] mt-1 group-hover:w-full transition-all duration-300"></div>
                 </div>
                 <div class="group">
@@ -51,37 +53,46 @@
                     <div class="h-1 w-8 bg-[#c1ff72] mt-1 group-hover:w-full transition-all duration-300"></div>
                 </div>
             </nav>
+
+            <!-- Mobile Profile Icon (Status Window Link) -->
+            <button id="mobile-profile-btn" class="md:hidden text-white/60 hover:text-[#c1ff72] transition-colors p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </button>
         </header>
 
-        <main class="flex-grow max-w-7xl mx-auto w-full px-10 py-20">
-            <div class="grid lg:grid-cols-2 gap-20 items-start">
+        <main class="flex-grow max-w-7xl mx-auto w-full px-10 py-20 overflow-hidden">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <!-- Left Side: Intro & Bullets -->
                 <div class="fade-in-left">
-                    <h1 class="text-6xl font-bold mb-4 tracking-tight">
-                        Network Engineer
+                    <h1 class="text-4xl lg:text-5xl font-bold mb-4 tracking-tight whitespace-nowrap">
+                        Back-end Developer
                     </h1>
                     <div class="accent-line mb-10"></div>
                     
                     <p class="text-xl text-white/60 mb-12 leading-relaxed max-w-lg">
-                        Hi, I'm <span class="text-[#c1ff72] font-semibold">V Madhusudhan</span>, a BTech-CSE graduate focused on building robust network infrastructures without relying on manual configurations.
+                        Hi, I'm <span class="text-[#c1ff72] font-semibold">V Madhusudhan</span>, a Java Backend Developer skilled in Spring Boot, PostgreSQL, and REST APIs, with hands-on experience in Docker, AWS, and CI/CD pipelines.
                     </p>
 
                     <div class="space-y-8" id="bullet-skills">
                         <div class="flex items-start gap-4">
-                            <div class="mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c1ff72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-network"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/><path d="M12 11V8"/></svg></div>
-                            <div><h3 class="font-bold text-lg mb-1">Routing & Switching: <span class="font-normal text-white/60">CCNA certified networking fundamentals.</span></h3></div>
-                        </div>
-                        <div class="flex items-start gap-4">
                             <div class="mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c1ff72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-workflow"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg></div>
-                            <div><h3 class="font-bold text-lg mb-1">Infrastructure as Code: <span class="font-normal text-white/60">Ansible for automation.</span></h3></div>
+                            <div><h3 class="font-bold text-lg mb-1">Infrastructure as Code: <span class="font-normal text-white/60">Terraform for provisioning.</span></h3></div>
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c1ff72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud"><path d="M17.5 19c2.5 0 4.5-2 4.5-4.5 0-2.3-1.7-4.2-4-4.5a7 7 0 1 0-13.5 3c-2.1.4-3.5 2.3-3.5 4.5 0 2.5 2 4.5 4.5 4.5h12Z"/></svg></div>
-                            <div><h3 class="font-bold text-lg mb-1">Cloud Networking: <span class="font-normal text-white/60">Cloud design and management.</span></h3></div>
+                            <div><h3 class="font-bold text-lg mb-1">Cloud: <span class="font-normal text-white/60">Cloud design and management.</span></h3></div>
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c1ff72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-container"><path d="M22 7.7c0-.6-.4-1.2-.8-1.5l-6.3-3.9c-.5-.3-1.2-.3-1.8 0l-6.3 3.9c-.4.3-.8.9-.8 1.5v8.6c0 .6.4 1.2.8 1.5l6.3 3.9c.5.3 1.2.3 1.8 0l6.3-3.9c.4-.3.8-.9.8-1.5V7.7Z"/><path d="M3.2 7.1 12 12.5l8.8-5.4"/><path d="M12 22.5V12.5"/></svg></div>
                             <div><h3 class="font-bold text-lg mb-1">Containerization: <span class="font-normal text-white/60">Docker and Kubernetes for scalable environments.</span></h3></div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c1ff72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg></div>
+                            <div><h3 class="font-bold text-lg mb-1">Backend Development: <span class="font-normal text-white/60">Java, Spring Boot, and REST APIs.</span></h3></div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c1ff72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-network"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/><path d="M12 11V8"/></svg></div>
+                            <div><h3 class="font-bold text-lg mb-1">Microservices: <span class="font-normal text-white/60">Distributed systems and Kafka.</span></h3></div>
                         </div>
                     </div>
 
@@ -109,94 +120,86 @@
                     </div>
                 </div>
 
-                <!-- Right Side: Terminal Skills -->
-                <div class="fade-in-right" style="animation-delay: 0.3s">
-                    <div class="bg-[#121212] border border-white/5 rounded-2xl overflow-hidden font-sans shadow-[0_0_15px_rgba(255,255,255,0.02)]">
-                        <!-- Terminal Header -->
-                        <div class="bg-white/5 border-b border-white/5 px-4 py-3 flex items-center gap-2">
-                            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                            <span class="ml-2 text-white/40 text-xs font-sans">madhu@network-engineer:~</span>
+                <!-- Right Side: Orbiting Animation -->
+                <div class="fade-in-right hidden lg:flex justify-center items-center relative w-full aspect-square max-w-[600px] mx-auto">
+
+                    <!-- Orbit 1 -->
+                    <div class="absolute w-[140px] h-[140px] border border-blue-400/40 border-dashed rounded-full orbit-1">
+                        <!-- Top: Java -->
+                        <div class="absolute top-0 left-1/2 -mt-4 -ml-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-1-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" class="w-5 h-5" alt="Java" />
                         </div>
-                        <!-- Terminal Body -->
-                        <div class="p-6 text-white/60 text-sm md:text-base leading-relaxed">
-                            <p class="mb-4"><span class="font-sans text-[#c1ff72]">madhu@network-engineer</span><span class="font-sans text-white">:</span><span class="font-sans text-blue-400">~</span><span class="font-sans text-white">$</span> tree skills</p>
-                            <ul class="space-y-1 list-none pl-0">
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500">├──</span> <span class="text-blue-400 font-semibold">Network Automation</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Python</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Ansible</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Nmap</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Wireshark</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">│   └──</span> <span class="text-green-400">Network Automation</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500">├──</span> <span class="text-blue-400 font-semibold">Linux System Admin</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Linux</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">│   └──</span> <span class="text-green-400">Ansible</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500">├──</span> <span class="text-blue-400 font-semibold">Web Scraping</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Python</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Requests</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">BeautifulSoup</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Scrapy</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">│   └──</span> <span class="text-green-400">Playwrights</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500">├──</span> <span class="text-blue-400 font-semibold">Network Troubleshooting</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500">├──</span> <span class="text-blue-400 font-semibold">CI/CD Pipelines</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">│   └──</span> <span class="text-green-400">GitHub Actions</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500">├──</span> <span class="text-blue-400 font-semibold">Containerization</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">│   ├──</span> <span class="text-green-400">Docker</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">│   └──</span> <span class="text-green-400">Kubernetes</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500">└──</span> <span class="text-blue-400 font-semibold">Version Control</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">    ├──</span> <span class="text-green-400">Git</span>
-                                </li>
-                                <li class="transition-colors cursor-default flex items-center gap-2">
-                                    <span class="text-gray-500 whitespace-pre">    └──</span> <span class="text-green-400">GitHub</span>
-                                </li>
-                            </ul>
-                            <p class="mt-4 text-[#c1ff72] font-sans animate-blink">_</p>
+                        <!-- Bottom: PostgreSQL -->
+                        <div class="absolute bottom-0 left-1/2 -mb-4 -ml-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-1-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" class="w-5 h-5" alt="PostgreSQL" />
+                        </div>
+                        <!-- Left: Spring Boot -->
+                        <div class="absolute top-1/2 left-0 -mt-4 -ml-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-1-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" class="w-5 h-5" alt="Spring Boot" />
+                        </div>
+                        <!-- Right: Python -->
+                        <div class="absolute top-1/2 right-0 -mt-4 -mr-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-1-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" class="w-5 h-5" alt="Python" />
+                        </div>
+                    </div>
+
+                    <!-- Orbit 2 -->
+                    <div class="absolute w-[260px] h-[260px] border border-blue-400/40 border-dashed rounded-full orbit-2">
+                        <!-- Top: Terraform -->
+                        <div class="absolute top-0 left-1/2 -mt-4 -ml-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-2-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" class="w-5 h-5" alt="Terraform" />
+                        </div>
+                        <!-- Bottom: AWS -->
+                        <div class="absolute bottom-0 left-1/2 -mb-4 -ml-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-2-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="w-6 h-6" alt="AWS" />
+                        </div>
+                        <!-- Left: Kafka -->
+                        <div class="absolute top-1/2 left-0 -mt-4 -ml-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-2-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg" class="w-5 h-5" alt="Kafka" />
+                        </div>
+                        <!-- Right: REST API -->
+                        <div class="absolute top-1/2 right-0 -mt-4 -mr-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-2-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"/><path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9"/><path d="M21 21v-2h-4"/><path d="M3 5h4V3"/><path d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"/></svg>
+                        </div>
+                    </div>
+
+                    <!-- Orbit 3 -->
+                    <div class="absolute w-[380px] h-[380px] border border-blue-400/40 border-dashed rounded-full orbit-3">
+                        <!-- Top: Docker -->
+                        <div class="absolute top-0 left-1/2 -mt-4 -ml-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-3-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" class="w-6 h-6" alt="Docker" />
+                        </div>
+                        <!-- Bottom: Kubernetes -->
+                        <div class="absolute bottom-0 left-1/2 -mb-4 -ml-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-3-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg" class="w-5 h-5" alt="Kubernetes" />
+                        </div>
+                        <!-- Left: Linux -->
+                        <div class="absolute top-1/2 left-0 -mt-4 -ml-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-3-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" class="w-5 h-5" alt="Linux" />
+                        </div>
+                        <!-- Right: Microservices -->
+                        <div class="absolute top-1/2 right-0 -mt-4 -mr-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-3-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 8.5 9 12l-3.5 3.5L2 12l3.5-3.5Z"/><path d="m12 2 3.5 3.5L12 9 8.5 5.5 12 2Z"/><path d="M18.5 8.5 22 12l-3.5 3.5L15 12l3.5-3.5Z"/><path d="m12 15 3.5 3.5L12 22l-3.5-3.5L12 15Z"/></svg>
+                        </div>
+                    </div>
+
+                    <!-- Orbit 4 -->
+                    <div class="absolute w-[500px] h-[500px] border border-blue-400/40 border-dashed rounded-full orbit-4">
+                        <!-- Top: Git -->
+                        <div class="absolute top-0 left-1/2 -mt-4 -ml-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-4-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" class="w-5 h-5" alt="Git" />
+                        </div>
+                        <!-- Bottom: Jenkins -->
+                        <div class="absolute bottom-0 left-1/2 -mb-4 -ml-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-4-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg" class="w-5 h-5" alt="Jenkins" />
+                        </div>
+                        <!-- Left: CCNA -->
+                        <div class="absolute top-1/2 left-0 -mt-4 -ml-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-4-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/><path d="M12 11V8"/></svg>
+                        </div>
+                        <!-- Right: Redis -->
+                        <div class="absolute top-1/2 right-0 -mt-4 -mr-4 w-8 h-8 bg-white rounded-full flex items-center justify-center orbit-4-icon shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" class="w-5 h-5" alt="Redis" />
                         </div>
                     </div>
                 </div>
@@ -209,6 +212,38 @@
                     <div class="accent-line"></div>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-coffee group-hover:scale-110 transition-transform"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="9" x2="9" y1="2" y2="4"/><line x1="15" x2="15" y1="2" y2="4"/></svg>
+                        Java
+                    </div>
+                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database group-hover:scale-110 transition-transform"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+                        PostgreSQL
+                    </div>
+                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-blocks group-hover:scale-110 transition-transform"><rect width="7" height="7" x="14" y="3" rx="1"/><path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"/></svg>
+                        Terraform
+                    </div>
+                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud group-hover:scale-110 transition-transform"><path d="M17.5 19c2.5 0 4.5-2 4.5-4.5 0-2.3-1.7-4.2-4-4.5a7 7 0 1 0-13.5 3c-2.1.4-3.5 2.3-3.5 4.5 0 2.5 2 4.5 4.5 4.5h12Z"/></svg>
+                        AWS
+                    </div>
+                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf group-hover:scale-110 transition-transform"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+                        Spring Boot
+                    </div>
+                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity group-hover:scale-110 transition-transform"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        Kafka
+                    </div>
+                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cable group-hover:scale-110 transition-transform"><path d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"/><path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9"/><path d="M21 21v-2h-4"/><path d="M3 5h4V3"/><path d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"/></svg>
+                        REST API
+                    </div>
+                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-component group-hover:scale-110 transition-transform"><path d="M5.5 8.5 9 12l-3.5 3.5L2 12l3.5-3.5Z"/><path d="m12 2 3.5 3.5L12 9 8.5 5.5 12 2Z"/><path d="M18.5 8.5 22 12l-3.5 3.5L15 12l3.5-3.5Z"/><path d="m12 15 3.5 3.5L12 22l-3.5-3.5L12 15Z"/></svg>
+                        Microservices
+                    </div>
                     <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-terminal group-hover:scale-110 transition-transform"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
                         Linux
@@ -231,31 +266,11 @@
                     </div>
                     <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-workflow group-hover:scale-110 transition-transform"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>
-                        GitHub Actions
+                        Jenkins
                     </div>
                     <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code group-hover:scale-110 transition-transform"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                         Python
-                    </div>
-                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings group-hover:scale-110 transition-transform"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
-                        Ansible
-                    </div>
-                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu group-hover:scale-110 transition-transform"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
-                        Network Automation
-                    </div>
-                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search group-hover:scale-110 transition-transform"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                        Nmap
-                    </div>
-                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity group-hover:scale-110 transition-transform"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                        Wireshark
-                    </div>
-                    <div class="bg-[#121212] border border-white/5 rounded-xl p-6 text-center text-sm font-medium text-white/60 hover:text-[#c1ff72] hover:border-[#c1ff72]/30 transition-all flex flex-col items-center gap-3 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe group-hover:scale-110 transition-transform"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-                        Web Scraping
                     </div>
                 </div>
             </section>
@@ -263,7 +278,7 @@
             <!-- Experience Section -->
             <section id="experience" class="mt-40">
                 <div class="mb-12">
-                    <h2 class="text-6xl font-bold mb-4 tracking-tight">Experience</h2>
+                    <h2 class="text-4xl font-bold mb-4 tracking-tight">Experience</h2>
                     <div class="accent-line mb-10"></div>
                 </div>
                 
@@ -309,7 +324,7 @@
             <!-- Education Section -->
             <section id="education" class="mt-40">
                 <div class="mb-12">
-                    <h2 class="text-6xl font-bold mb-4 tracking-tight text-white uppercase">Education</h2>
+                    <h2 class="text-4xl font-bold mb-4 tracking-tight text-white uppercase">Education</h2>
                     <div class="accent-line mb-10"></div>
                 </div>
 
@@ -319,22 +334,18 @@
                         <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#c1ff72] shadow-[0_0_15px_rgba(193,255,114,0.5)]"></div>
                         <div class="bg-[#121212] border border-white/5 rounded-2xl p-8 card-hover max-w-2xl">
                             <span class="text-[#c1ff72] font-mono text-sm font-bold uppercase tracking-widest mb-2 block">2018 – 2022</span>
-                            <h3 class="text-2xl font-bold mb-2 uppercase tracking-tight">Bachelor of Technology in Computer Science</h3>
-                            <p class="text-white/60 leading-relaxed">
-                                Focused on core computer science principles, networking fundamentals, and software engineering. Developed a strong foundation in problem-solving and technical architecture.
-                            </p>
+                            <h3 class="text-xl font-bold mb-2 uppercase tracking-tight">Bachelor of Technology in Computer Science</h3>
+                            <p class="text-white/60 leading-relaxed">Siddharth Institute of Engineering and Technology - Puttur,</p>
                         </div>
                     </div>
 
                     <!-- Education Item 2 -->
                     <div class="relative pl-12 reveal">
-                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#c1ff72]/30 border border-[#c1ff72]/50"></div>
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#c1ff72] shadow-[0_0_15px_rgba(193,255,114,0.5)]"></div>
                         <div class="bg-[#121212] border border-white/5 rounded-2xl p-8 card-hover max-w-2xl">
-                            <span class="text-[#c1ff72]/50 font-mono text-sm font-bold uppercase tracking-widest mb-2 block">2015 - 2018</span>
-                            <h3 class="text-2xl font-bold mb-2 text-white/80 uppercase tracking-tight">Board Of Secondary & Intermediate Education</h3>
-                            <p class="text-white/40 leading-relaxed">
-                                Completed secondary and intermediate education with a focus on Mathematics, Physics, and Chemistry, laying the groundwork for engineering studies.
-                            </p>
+                            <span class="text-[#c1ff72] font-mono text-sm font-bold uppercase tracking-widest mb-2 block">2015 - 2018</span>
+                            <h3 class="text-xl font-bold mb-2 uppercase tracking-tight">Board Of Secondary & Intermediate Education</h3>
+                            <p class="text-white/60 leading-relaxed">Sai Sri Chaithanya Junior College - palamaner.</p>
                         </div>
                     </div>
                 </div>
@@ -342,9 +353,61 @@
         </main>
 
         <footer class="py-10 px-10 border-t border-white/5 text-center text-white/20 text-xs uppercase tracking-[0.3em]">
-            © <span id="year"></span> V Madhusudhan • Network Engineer Portfolio
+            © <span id="year"></span> V Madhusudhan • Back-end Developer Portfolio
         </footer>
     </div>
+
+    <!-- Status Window Modal -->
+    <div id="status-modal" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
+        <div id="status-modal-content" class="bg-[#121212] border border-[#c1ff72]/30 rounded-xl w-full max-w-xl mx-4 shadow-[0_0_30px_rgba(193,255,114,0.1)] transform scale-95 transition-transform duration-300 overflow-hidden">
+            <!-- Header -->
+            <div class="flex justify-between items-center bg-[#050505] border-b border-white/10 p-3">
+                <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <h3 class="text-white/60 font-mono text-xs tracking-widest uppercase">System_Status.exe</h3>
+                <button id="close-modal-btn" class="text-white/60 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            <!-- Body -->
+            <div class="p-6 flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+                <!-- Image -->
+                <div class="w-32 h-32 sm:w-40 sm:h-40 shrink-0 rounded-lg overflow-hidden border border-white/10 bg-[#1a1a1a]">
+                    <img src="profile.png" alt="Profile" class="w-full h-full object-cover" onerror="this.src='https://picsum.photos/seed/madhu/200/200'" />
+                </div>
+                <!-- Details -->
+                <div class="font-mono text-sm space-y-4 w-full">
+                    <div class="flex border-b border-white/5 pb-2">
+                        <span class="text-[#c1ff72] w-24 shrink-0">NAME:</span>
+                        <span class="text-white truncate">V Madhusudhan</span>
+                    </div>
+                    <div class="flex border-b border-white/5 pb-2">
+                        <span class="text-[#c1ff72] w-24 shrink-0">ROLE:</span>
+                        <span class="text-white truncate">Back-end Developer</span>
+                    </div>
+                    <div class="flex border-b border-white/5 pb-2">
+                        <span class="text-[#c1ff72] w-24 shrink-0">LOCATION:</span>
+                        <span class="text-white truncate">India</span>
+                    </div>
+                    <div class="flex border-b border-white/5 pb-2">
+                        <span class="text-[#c1ff72] w-24 shrink-0">EMAIL:</span>
+                        <span class="text-white truncate">madhu99india@gmail.com</span>
+                    </div>
+                    <div class="flex pt-2">
+                        <span class="text-[#c1ff72] w-24 shrink-0">STATUS:</span>
+                        <span class="text-green-400 animate-pulse flex items-center gap-2 truncate">
+                            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                            Online & Ready
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
