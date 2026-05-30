@@ -6,17 +6,49 @@
   --card-dark: #121212;
 }
 
-.grid-bg {
+body.grid-bg {
+  background-color: #101010;
+  position: relative;
+  z-index: 0;
+  background-image: none;
+}
+
+body.grid-bg::before,
+body.grid-bg::after {
+  content: "";
+  position: fixed;
+  left: -50vw;
+  right: -50vw;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body.grid-bg::before {
+  top: 50%;
+  bottom: -50vh;
+  transform: perspective(400px) rotateX(60deg);
+  transform-origin: top center;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 20%, transparent 100%);
+}
+
+body.grid-bg::after {
+  bottom: 50%;
+  top: -50vh;
+  transform: perspective(400px) rotateX(-60deg);
+  transform-origin: bottom center;
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 20%, transparent 100%);
+  mask-image: linear-gradient(to top, transparent 0%, black 20%, transparent 100%);
 }
 
 .accent-line {
   height: 0.25rem;
   width: 4rem;
-  background-color: #c1ff72;
+  background-color: #8ab4f8;
   border-radius: 9999px;
 }
 

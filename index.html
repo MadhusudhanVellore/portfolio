@@ -23,72 +23,115 @@
             }
         }
     </script>
+    <style>
+        @keyframes scaleUp {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .scale-up-anim {
+            animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-[#c1ff72]/30 grid-bg text-white bg-black font-sans antialiased">
+<body class="min-h-screen flex flex-col selection:bg-[#8ab4f8]/30 grid-bg text-white bg-black font-sans antialiased">
     <div id="root">
+        <!-- Logo Modal -->
+        <div id="logo-modal" class="fixed inset-0 z-[100] hidden bg-black/90 items-center justify-center backdrop-blur-sm transition-all duration-300" onclick="this.classList.add('hidden'); this.classList.remove('flex')">
+            <img src="https://github.com/MadhusudhanVellore.png" class="w-64 h-64 md:w-96 md:h-96 rounded-full border border-[#8ab4f8]/50 object-cover scale-up-anim shadow-[0_0_50px_rgba(138,180,248,0.2)]" alt="V Madhusudhan Large" />
+        </div>
+
         <!-- Header -->
         <header class="py-2 px-10 flex justify-between items-center border-b border-white/5 backdrop-blur-sm sticky top-0 z-50">
-            <a href="#root" class="flex items-center gap-4 py-2 hover:opacity-80 transition-opacity">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c1ff72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
-                    <path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.2 2.4c.1.2.2.4.2.6V20a1 1 0 0 1-1 1H3.6a1 1 0 0 1-1-1v-1c0-.2.1-.4.2-.6L4 16" />
-                </svg>
-            </a>
+            <button onclick="document.getElementById('logo-modal').classList.remove('hidden'); document.getElementById('logo-modal').classList.add('flex')" class="flex items-center gap-4 py-2 hover:opacity-80 transition-opacity focus:outline-none">
+                <img src="https://github.com/MadhusudhanVellore.png" class="w-9 h-9 rounded-full border border-[#8ab4f8]/30 object-cover" alt="V Madhusudhan" />
+            </button>
             
             <!-- Desktop Nav -->
             <nav class="hidden md:flex gap-10 text-sm font-bold text-white uppercase tracking-widest">
                 <div class="group">
-                    <a href="#skills" class="hover:text-[#c1ff72] transition-colors">Skills</a>
-                    <div class="h-1 w-8 bg-[#c1ff72] mt-1 group-hover:w-full transition-all duration-300"></div>
+                    <a href="#skills" class="hover:text-[#8ab4f8] transition-colors">Skills</a>
                 </div>
                 <div class="group">
-                    <a href="#experience" class="hover:text-[#c1ff72] transition-colors">Experience</a>
-                    <div class="h-1 w-8 bg-[#c1ff72] mt-1 group-hover:w-full transition-all duration-300"></div>
+                    <a href="#experience" class="hover:text-[#8ab4f8] transition-colors">Experience</a>
                 </div>
                 <div class="group">
-                    <a href="#education" class="hover:text-[#c1ff72] transition-colors">Education</a>
-                    <div class="h-1 w-8 bg-[#c1ff72] mt-1 group-hover:w-full transition-all duration-300"></div>
+                    <a href="#education" class="hover:text-[#8ab4f8] transition-colors">Education</a>
                 </div>
             </nav>
         </header>
 
         <main class="flex-grow max-w-7xl mx-auto w-full px-6 md:px-10 py-20 overflow-hidden">
-            <!-- Profile Card Block -->
-            <div class="bg-[#121212] border border-white/5 rounded-2xl p-8 md:p-12 lg:p-16 flex flex-col md:flex-row gap-10 md:gap-16 items-center md:items-start card-hover reveal mx-auto max-w-5xl">
+            <!-- Profile Block -->
+            <div class="flex flex-col md:flex-row gap-16 md:gap-20 items-center md:items-start md:justify-between reveal max-w-6xl mx-auto mt-10 w-full font-mono">
                 
-                <!-- Profile Image -->
-                <div class="shrink-0 relative">
-                    <div class="w-48 h-48 md:w-[220px] md:h-[220px] rounded-full overflow-hidden shadow-[0_0_30px_rgba(193,255,114,0.1)] bg-gray-800 bg-center bg-cover border border-white/10" style="background-image: url('https://github.com/MadhusudhanVellore.png'), url('https://ui-avatars.com/api/?name=V+Madhusudhan&background=c1ff72&color=000&size=256');">
-                    </div>
-                </div>
-
+                
                 <!-- Text Content -->
-                <div class="flex flex-col text-center md:text-left pt-2 w-full">
-                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-2 font-sans tracking-tight">V Madhusudhan</h1>
-                    <h2 class="text-lg md:text-xl text-[#c1ff72] font-medium mb-6 uppercase tracking-wider">Back-end Developer</h2>
+                <div class="flex flex-col pt-10 w-full max-w-2xl">
+                    <h1 class="text-4xl md:text-5xl lg:text-[42px] xl:text-[50px] font-bold text-white mb-8 leading-[1.3] font-mono">
+                        Hi, I'm a <span class="text-[#8ab4f8]">Go developer</span> and<br class="hidden xl:block" />
+                        <span class="text-[#8ab4f8]">back-end engineer</span>
+                    </h1>
                     
-                    <p class="text-white/70 leading-relaxed mb-10 max-w-2xl text-[15px] md:text-[16px]">
-                        Java Backend Developer with knowledge of <span class="text-[#c1ff72] font-semibold">Java</span>, <span class="text-[#c1ff72] font-semibold">Spring Boot</span>, and <span class="text-[#c1ff72] font-semibold">PostgreSQL</span> for building <span class="text-[#c1ff72] font-semibold">RESTful applications</span>. Familiar with <span class="text-[#c1ff72] font-semibold">Git</span>, <span class="text-[#c1ff72] font-semibold">GitHub</span>, <span class="text-[#c1ff72] font-semibold">GitHub Actions</span>, <span class="text-[#c1ff72] font-semibold">AWS</span>, <span class="text-[#c1ff72] font-semibold">Terraform</span>, <span class="text-[#c1ff72] font-semibold">Docker</span>, and <span class="text-[#c1ff72] font-semibold">Kubernetes</span> for version control, containerization, and deployment. Basic experience in <span class="text-[#c1ff72] font-semibold">Linux</span>, <span class="text-[#c1ff72] font-semibold">Bash scripting</span>, <span class="text-[#c1ff72] font-semibold">Maven</span>, and <span class="text-[#c1ff72] font-semibold">Apache Kafka</span>.
+                    <p class="text-white/60 font-mono text-[14px] md:text-[15px] leading-relaxed mb-12 max-w-2xl">
+                        I'm currently into Golang backend development, building RESTful applications with Postgres, Docker, Kubernetes, and exploring cloud infrastructure with AWS & Terraform.
                     </p>
                     
-                    <!-- Contact Footer -->
-                    <div class="mt-auto flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-4 pt-6 border-t border-white/10 text-white/60">
-                        
-                        <a href="mailto:madhusudhan.vellore@gmail.com" class="flex items-center gap-2 hover:text-[#c1ff72] transition-colors text-sm font-medium">
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="mailto:madhusudhan.vellore@gmail.com" class="inline-flex items-center gap-3 text-white px-4 py-2 font-mono text-sm hover:text-[#8ab4f8] transition-colors border border-white/10 rounded-lg hover:border-[#8ab4f8]/50 bg-white/5">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                            <span>madhusudhan.vellore@gmail.com</span>
+                            <span>E-Mail</span>
                         </a>
                         
-                        <a href="https://www.linkedin.com/in/v-madhusudhan-b1b403350" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-[#c1ff72] transition-colors text-sm font-medium">
+                        <a href="https://www.linkedin.com/in/v-madhusudhan-b1b403350" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 text-white px-4 py-2 font-mono text-sm hover:text-[#8ab4f8] transition-colors border border-white/10 rounded-lg hover:border-[#8ab4f8]/50 bg-white/5">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                            <span>V Madhusudhan</span>
+                            <span>LinkedIn</span>
                         </a>
 
-                        <a href="https://github.com/MadhusudhanVellore" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-[#c1ff72] transition-colors text-sm font-medium">
+                        <a href="https://github.com/MadhusudhanVellore" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 text-white px-4 py-2 font-mono text-sm hover:text-[#8ab4f8] transition-colors border border-white/10 rounded-lg hover:border-[#8ab4f8]/50 bg-white/5">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                            <span>@MadhusudhanVellore</span>
+                            <span>GitHub</span>
                         </a>
                     </div>
                 </div>
+                <div class="w-full flex-1 max-w-[450px] lg:max-w-[550px] flex items-center justify-center shrink-0 relative lg:translate-x-12 scale-110 lg:scale-125 z-0">
+<svg viewBox="0 0 500 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="w-full">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+<polygon points="110.00,50.00 161.96,80.00 161.96,140.00 110.00,170.00 58.04,140.00 58.04,80.00" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.2" stroke-dasharray="4,4" />
+<polygon points="120.00,180.00 163.30,205.00 163.30,255.00 120.00,280.00 76.70,255.00 76.70,205.00" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.3" />
+<polygon points="10.00,155.00 57.63,182.50 57.63,237.50 10.00,265.00 -37.63,237.50 -37.63,182.50" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.1" />
+<polygon points="220.00,225.00 276.29,257.50 276.29,322.50 220.00,355.00 163.71,322.50 163.71,257.50" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.15" stroke-dasharray="3,3" />
+<polygon points="390.00,135.00 446.29,167.50 446.29,232.50 390.00,265.00 333.71,232.50 333.71,167.50" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.2" />
+<polygon points="440.00,40.00 483.30,65.00 483.30,115.00 440.00,140.00 396.70,115.00 396.70,65.00" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="2" stroke-opacity="0.7" />
+<polygon points="520.00,85.00 584.95,122.50 584.95,197.50 520.00,235.00 455.05,197.50 455.05,122.50" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.1" />
+<path d="M 185 187 L 163 205" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3" />
+<path d="M 76 205 L 57 237" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3" />
+<path d="M 314 187 L 333 167" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3" />
+<path d="M 185 112 L 161 140" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3" />
+<path d="M 314 112 L 396 115" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3" />
+<g filter="url(#glow)">
+<polygon points="250.00,150.00 206.70,125.00 250.00,100.00 293.30,125.00" stroke-linejoin="round" fill="#8A4FFE" />
+<polygon points="250.00,150.00 250.00,200.00 206.70,175.00 206.70,125.00" stroke-linejoin="round" fill="#6028d7" />
+<polygon points="250.00,150.00 293.30,125.00 293.30,175.00 250.00,200.00" stroke-linejoin="round" fill="#6624df" />
+</g>
+<polygon points="250.00,75.00 314.95,112.50 314.95,187.50 250.00,225.00 185.05,187.50 185.05,112.50" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="2" stroke-opacity="1" /><line x1="250.00" y1="75.00" x2="250.00" y2="100.00" stroke="#ffffff" stroke-width="2" stroke-opacity="1" />
+<line x1="314.95" y1="112.50" x2="293.30" y2="125.00" stroke="#ffffff" stroke-width="2" stroke-opacity="1" />
+<line x1="314.95" y1="187.50" x2="293.30" y2="175.00" stroke="#ffffff" stroke-width="2" stroke-opacity="1" />
+<line x1="250.00" y1="225.00" x2="250.00" y2="200.00" stroke="#ffffff" stroke-width="2" stroke-opacity="1" />
+<line x1="185.05" y1="187.50" x2="206.70" y2="175.00" stroke="#ffffff" stroke-width="2" stroke-opacity="1" />
+<line x1="185.05" y1="112.50" x2="206.70" y2="125.00" stroke="#ffffff" stroke-width="2" stroke-opacity="1" />
+</svg>
+                </div>
+
+            </div>
+
             </div>
 
             <!-- Full Skills Grid -->
@@ -97,250 +140,224 @@
                     <h2 class="text-4xl font-bold mb-4 tracking-tight">Technical Stack</h2>
                     <div class="accent-line mb-10"></div>
                 </div>
-
+    
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Java -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal">
-                        <div class="w-1.5 shrink-0 bg-[#c1ff72]"></div>
+
+                    <!-- Go -->
+                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 0ms;">
+                        <div class="w-1.5 shrink-0" style="background-color: #00ADD8;"></div>
                         <div class="p-6 w-full">
                             <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" class="w-8 h-8" alt="Java" />
-                                <h3 class="font-bold text-xl text-white">Java</h3>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" class="w-8 h-8 object-contain" alt="Go" />
+                                <h3 class="font-bold text-xl text-white">Go</h3>
                             </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">core backend language</p>
+                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">backend language</p>
                             <ul class="text-sm space-y-2 text-white/70 font-mono">
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>object-oriented design</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>high-performance applications</span></li>
+
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>high-performance concurrency</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>RESTful services</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>microservices</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- PostgreSQL -->
                     <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 100ms;">
-                        <div class="w-1.5 shrink-0 bg-[#336791]"></div>
+                        <div class="w-1.5 shrink-0" style="background-color: #4169E1;"></div>
                         <div class="p-6 w-full">
                             <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" class="w-8 h-8" alt="PostgreSQL" />
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" class="w-8 h-8 object-contain" alt="PostgreSQL" />
                                 <h3 class="font-bold text-xl text-white">PostgreSQL</h3>
                             </div>
                             <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">relational database</p>
                             <ul class="text-sm space-y-2 text-white/70 font-mono">
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>structured data storage</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>complex querying & tuning</span></li>
+
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>complex querying</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>ACID transactions</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>schema design</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Terraform -->
                     <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 200ms;">
-                        <div class="w-1.5 shrink-0 bg-[#844FBA]"></div>
+                        <div class="w-1.5 shrink-0" style="background-color: #844FBA;"></div>
                         <div class="p-6 w-full">
                             <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" class="w-8 h-8" alt="Terraform" />
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" class="w-8 h-8 object-contain" alt="Terraform" />
                                 <h3 class="font-bold text-xl text-white">Terraform</h3>
                             </div>
                             <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">infrastructure as code</p>
                             <ul class="text-sm space-y-2 text-white/70 font-mono">
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>state, plans, drift</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>reviewable infra changes</span></li>
+
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>cloud provisioning</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>state management</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>module creation</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- AWS -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal">
-                        <div class="w-1.5 shrink-0 bg-[#FF9900]"></div>
+                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 0ms;">
+                        <div class="w-1.5 shrink-0" style="background-color: #FF9900;"></div>
                         <div class="p-6 w-full">
                             <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="w-10 h-10 object-contain" alt="AWS" />
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="w-8 h-8 object-contain" alt="AWS" />
                                 <h3 class="font-bold text-xl text-white">AWS</h3>
                             </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">cloud platform</p>
+                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">cloud provider</p>
                             <ul class="text-sm space-y-2 text-white/70 font-mono">
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>scalable cloud infrastructure</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>deployment & management</span></li>
-                            </ul>
-                        </div>
-                    </div>
 
-                    <!-- Spring Boot -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 100ms;">
-                        <div class="w-1.5 shrink-0 bg-[#6DB33F]"></div>
-                        <div class="p-6 w-full">
-                            <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" class="w-8 h-8" alt="Spring Boot" />
-                                <h3 class="font-bold text-xl text-white">Spring Boot</h3>
-                            </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">java framework</p>
-                            <ul class="text-sm space-y-2 text-white/70 font-mono">
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>rapid application development</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>enterprise-ready features</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>EC2, S3, RDS</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>IAM security</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>serverless computing</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Docker -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 200ms;">
-                        <div class="w-1.5 shrink-0 bg-[#2496ED]"></div>
+                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 100ms;">
+                        <div class="w-1.5 shrink-0" style="background-color: #2496ED;"></div>
                         <div class="p-6 w-full">
                             <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" class="w-8 h-8" alt="Docker" />
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" class="w-8 h-8 object-contain" alt="Docker" />
                                 <h3 class="font-bold text-xl text-white">Docker</h3>
                             </div>
                             <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">containerization</p>
                             <ul class="text-sm space-y-2 text-white/70 font-mono">
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>containers, images, registries</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>dev/prod parity matters</span></li>
+
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>image building</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>multi-stage builds</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>container management</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Kubernetes -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal">
-                        <div class="w-1.5 shrink-0 bg-[#326CE5]"></div>
+                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 200ms;">
+                        <div class="w-1.5 shrink-0" style="background-color: #326CE5;"></div>
                         <div class="p-6 w-full">
                             <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" class="w-8 h-8" alt="Kubernetes" />
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" class="w-8 h-8 object-contain" alt="Kubernetes" />
                                 <h3 class="font-bold text-xl text-white">Kubernetes</h3>
                             </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">orchestration</p>
+                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">container orchestration</p>
                             <ul class="text-sm space-y-2 text-white/70 font-mono">
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>services, deployments, rollouts</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>health, scale, failure domains</span></li>
+
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>cluster management</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>pod scaling</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>service discovery</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Kafka -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 100ms;">
-                        <div class="w-1.5 shrink-0 bg-[#231F20]"></div>
+                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 0ms;">
+                        <div class="w-1.5 shrink-0" style="background-color: #FFFFFF;"></div>
                         <div class="p-6 w-full">
                             <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg" class="w-8 h-8 brightness-0 invert" alt="Kafka" />
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg" class="w-8 h-8 object-contain" alt="Kafka" />
                                 <h3 class="font-bold text-xl text-white">Kafka</h3>
                             </div>
                             <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">event streaming</p>
                             <ul class="text-sm space-y-2 text-white/70 font-mono">
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>high-throughput messaging</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>real-time data pipelines</span></li>
+
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>publish-subscribe messaging</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>high-throughput</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>real-time pipelines</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Linux -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 200ms;">
-                        <div class="w-1.5 shrink-0 bg-[#FCC624]"></div>
+                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 100ms;">
+                        <div class="w-1.5 shrink-0" style="background-color: #FCC624;"></div>
                         <div class="p-6 w-full">
                             <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" class="w-8 h-8" alt="Linux" />
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" class="w-8 h-8 object-contain" alt="Linux" />
                                 <h3 class="font-bold text-xl text-white">Linux</h3>
                             </div>
                             <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">operating system</p>
                             <ul class="text-sm space-y-2 text-white/70 font-mono">
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>server administration base</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>shell scripting & automation</span></li>
+
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>system administration</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>shell scripting</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>server management</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- GitHub Actions -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal">
-                        <div class="w-1.5 shrink-0 bg-[#2088FF]"></div>
+                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 200ms;">
+                        <div class="w-1.5 shrink-0" style="background-color: #2088FF;"></div>
                         <div class="p-6 w-full">
                             <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.simpleicons.org/githubactions/2088FF" class="w-8 h-8 object-contain" alt="GitHub Actions" />
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg" class="w-8 h-8 object-contain" alt="GitHub Actions" />
                                 <h3 class="font-bold text-xl text-white">GitHub Actions</h3>
                             </div>
                             <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">ci/cd automation</p>
                             <ul class="text-sm space-y-2 text-white/70 font-mono">
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>automated workflows</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>build & deploy pipelines</span></li>
-                            </ul>
-                        </div>
-                    </div>
 
-                    <!-- Apache Maven -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 100ms;">
-                        <div class="w-1.5 shrink-0 bg-[#C71A36]"></div>
-                        <div class="p-6 w-full">
-                            <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.simpleicons.org/apachemaven/C71A36" class="w-8 h-8 object-contain" alt="Apache Maven" />
-                                <h3 class="font-bold text-xl text-white">Apache Maven</h3>
-                            </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">build automation</p>
-                            <ul class="text-sm space-y-2 text-white/70 font-mono">
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>dependency management</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>project lifecycle execution</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>workflow automation</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>build pipelines</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>deployment</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- gRPC -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 200ms;">
-                        <div class="w-1.5 shrink-0 bg-[#244C5A]"></div>
+                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 0ms;">
+                        <div class="w-1.5 shrink-0" style="background-color: #00A9E2;"></div>
                         <div class="p-6 w-full">
                             <div class="flex items-center gap-3 mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#00A9E2" class="w-8 h-8">
-                                    <path d="M12.55 10.45l-1.92 1.47a.74.74 0 0 1-1.04-.15l-1.12-1.46a.74.74 0 0 1 .15-1.04l1.92-1.47a.74.74 0 0 1 1.04.15l1.12 1.46c.24.32.18.77-.15 1.04Zm-2.8 1.95L8.63 13.88a.74.74 0 0 1-1.04-.15L6.47 12.27a.74.74 0 0 1 .15-1.04l1.12-1.48a.74.74 0 0 1 1.04.15l1.12 1.46a.74.74 0 0 1-.15 1.04Zm9.33-4.2C18.23 4.29 13.84 2 12 2s-6.23 2.3-7.08 6.2C4.07 12.1 2 16.5 2 16.5h3.62s1.46-3.1 3.52-5.46l-1.02-1.33c-.5-.65-.37-1.56.28-2.06l3.36-2.58a1.53 1.53 0 0 1 2.14.3l3.36 4.38c.5.65.37 1.56-.28 2.06l-1.8 1.38c1.9 2.1 3.2 5.3 3.2 5.3H22s-2.07-4.4-2.92-8.3Z"/>
-                                </svg>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grpc/grpc-original.svg" class="w-8 h-8 object-contain" alt="gRPC" />
                                 <h3 class="font-bold text-xl text-white">gRPC</h3>
                             </div>
                             <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">rpc framework</p>
                             <ul class="text-sm space-y-2 text-white/70 font-mono">
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>high-performance comms</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>protocol buffers</span></li>
+
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>protocol buffers</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>microservices communication</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>high-performance</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Bash -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal">
-                        <div class="w-1.5 shrink-0 bg-[#4EAA25]"></div>
+                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 100ms;">
+                        <div class="w-1.5 shrink-0" style="background-color: #4EAA25;"></div>
                         <div class="p-6 w-full">
                             <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.simpleicons.org/gnubash/4EAA25" class="w-8 h-8 object-contain" alt="Bash" />
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" class="w-8 h-8 object-contain" alt="Bash" />
                                 <h3 class="font-bold text-xl text-white">Bash</h3>
                             </div>
                             <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">shell scripting</p>
                             <ul class="text-sm space-y-2 text-white/70 font-mono">
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>command-line automation</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>system administration</span></li>
-                            </ul>
-                        </div>
-                    </div>
 
-                    <!-- OpenTelemetry -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 100ms;">
-                        <div class="w-1.5 shrink-0 bg-[#000000]"></div>
-                        <div class="p-6 w-full">
-                            <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opentelemetry/opentelemetry-original.svg" class="w-8 h-8 object-contain" alt="OpenTelemetry" onerror="this.src='https://cdn.simpleicons.org/opentelemetry/FFFFFF'" />
-                                <h3 class="font-bold text-xl text-white">OpenTelemetry</h3>
-                            </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">observability framework</p>
-                            <ul class="text-sm space-y-2 text-white/70 font-mono">
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>traces, metrics, logs</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>distributed instrumentation</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>automation scripts</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>environment setup</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>cli tools</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Python -->
                     <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal" style="transition-delay: 200ms;">
-                        <div class="w-1.5 shrink-0 bg-[#3776AB]"></div>
+                        <div class="w-1.5 shrink-0" style="background-color: #3776AB;"></div>
                         <div class="p-6 w-full">
                             <div class="flex items-center gap-3 mb-2">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" class="w-8 h-8 object-contain" alt="Python" />
                                 <h3 class="font-bold text-xl text-white">Python</h3>
                             </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">scripting language</p>
+                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">programming language</p>
                             <ul class="text-sm space-y-2 text-white/70 font-mono">
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>data processing scripts</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#c1ff72] text-[10px] mt-1">●</span><span>automation & tooling</span></li>
+
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>scripting</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>automation</span></li>
+                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>data processing</span></li>
                             </ul>
                         </div>
                     </div>
-
                 </div>
             </section>
 
@@ -354,36 +371,36 @@
                 <div class="bg-[#121212] border border-white/5 rounded-2xl p-10 card-hover reveal">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
                         <div>
-                            <h3 class="text-2xl font-bold text-[#c1ff72] mb-2 uppercase tracking-tight">Graduate Engineer, Operations</h3>
+                            <h3 class="text-2xl font-bold text-[#8ab4f8] mb-2 uppercase tracking-tight">Graduate Engineer, Operations</h3>
                             <p class="text-xl font-medium text-white/80 mb-6">Mavenir Systems Private Limited | IN-Bangalore-MFAR-8</p>
                             
                             <div class="space-y-4">
                                 <h4 class="text-sm font-bold text-white uppercase tracking-[0.2em] mb-4">Roles & Responsibilities</h4>
                                 <ul class="space-y-3 text-white/60 text-lg leading-relaxed">
                                     <li class="flex gap-3">
-                                        <span class="text-[#c1ff72] font-bold">01</span>
+                                        <span class="text-[#8ab4f8] font-bold">01</span>
                                         <span>Provided support and maintenance for VMAS, ensuring high availability and smooth operations.</span>
                                     </li>
                                     <li class="flex gap-3">
-                                        <span class="text-[#c1ff72] font-bold">02</span>
+                                        <span class="text-[#8ab4f8] font-bold">02</span>
                                         <span>Troubleshot and resolved technical issues via tickets, performing root cause analysis to prevent recurrence.</span>
                                     </li>
                                     <li class="flex gap-3">
-                                        <span class="text-[#c1ff72] font-bold">03</span>
+                                        <span class="text-[#8ab4f8] font-bold">03</span>
                                         <span>Monitored system performance and KPIs, proactively identifying and fixing issues.</span>
                                     </li>
                                     <li class="flex gap-3">
-                                        <span class="text-[#c1ff72] font-bold">04</span>
+                                        <span class="text-[#8ab4f8] font-bold">04</span>
                                         <span>Collaborated with development teams to report bugs, test new features, and support product improvements.</span>
                                     </li>
                                     <li class="flex gap-3">
-                                        <span class="text-[#c1ff72] font-bold">05</span>
+                                        <span class="text-[#8ab4f8] font-bold">05</span>
                                         <span>Maintained documentation, change records, and communicated updates to customers and internal teams.</span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="text-[#c1ff72] font-mono text-sm uppercase tracking-widest bg-white/5 px-6 py-3 rounded-full border border-white/5 whitespace-nowrap">
+                        <div class="text-[#8ab4f8] font-mono text-sm uppercase tracking-widest bg-white/5 px-6 py-3 rounded-full border border-white/5 whitespace-nowrap">
                             August 2024 – February 2025
                         </div>
                     </div>
@@ -400,9 +417,9 @@
                 <div class="relative border-l border-white/10 ml-4 space-y-12 pb-10">
                     <!-- Education Item 1 -->
                     <div class="relative pl-12 reveal">
-                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#c1ff72] shadow-[0_0_15px_rgba(193,255,114,0.5)]"></div>
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#8ab4f8] shadow-[0_0_15px_rgba(138,180,248,0.5)]"></div>
                         <div class="bg-[#121212] border border-white/5 rounded-2xl p-8 card-hover max-w-2xl">
-                            <span class="text-[#c1ff72] font-mono text-sm font-bold uppercase tracking-widest mb-2 block">2018 – 2022</span>
+                            <span class="text-[#8ab4f8] font-mono text-sm font-bold uppercase tracking-widest mb-2 block">2018 – 2022</span>
                             <h3 class="text-xl font-bold mb-2 uppercase tracking-tight">Bachelor of Technology in Computer Science</h3>
                             <p class="text-white/60 leading-relaxed">Siddharth Institute of Engineering and Technology - Puttur,</p>
                         </div>
@@ -410,9 +427,9 @@
 
                     <!-- Education Item 2 -->
                     <div class="relative pl-12 reveal">
-                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#c1ff72] shadow-[0_0_15px_rgba(193,255,114,0.5)]"></div>
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#8ab4f8] shadow-[0_0_15px_rgba(138,180,248,0.5)]"></div>
                         <div class="bg-[#121212] border border-white/5 rounded-2xl p-8 card-hover max-w-2xl">
-                            <span class="text-[#c1ff72] font-mono text-sm font-bold uppercase tracking-widest mb-2 block">2015 - 2018</span>
+                            <span class="text-[#8ab4f8] font-mono text-sm font-bold uppercase tracking-widest mb-2 block">2015 - 2018</span>
                             <h3 class="text-xl font-bold mb-2 uppercase tracking-tight">Board Of Secondary & Intermediate Education</h3>
                             <p class="text-white/60 leading-relaxed">Sai Sri Chaithanya Junior College - palamaner.</p>
                         </div>
