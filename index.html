@@ -35,6 +35,158 @@
 </head>
 <body class="min-h-screen flex flex-col selection:bg-[#8ab4f8]/30 grid-bg text-white bg-black font-sans antialiased">
     <div id="root">
+
+        <!-- About Modal -->
+        <div id="about-modal-new" class="fixed inset-0 z-[100] hidden bg-black/80 items-center justify-center backdrop-blur-md transition-all duration-300" onclick="this.classList.add('hidden'); this.classList.remove('flex')">
+            <div class="relative w-full h-full max-w-7xl max-h-[90vh] md:rounded-3xl overflow-hidden bg-gradient-to-br from-[#001e4a] via-[#003b8e] to-[#001a40] text-white flex flex-col md:flex-row shadow-2xl scale-up-anim border border-[#8ab4f8]/20" onclick="event.stopPropagation()">
+                
+                <!-- Close Button -->
+                <button onclick="document.getElementById('about-modal-new').classList.add('hidden'); document.getElementById('about-modal-new').classList.remove('flex')" class="absolute top-6 right-6 z-50 text-white/50 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+
+                <!-- Left Sidebar -->
+                <div class="hidden md:flex flex-col w-20 border-r border-[#8ab4f8]/20 bg-[#001433]/50 items-center py-8 gap-8 shrink-0">
+                    <div class="text-center text-[#8ab4f8] font-bold text-xl leading-tight mb-4">VM<br/>2000</div>
+                    <div class="flex flex-col gap-8 w-full items-center text-[#8ab4f8]/50">
+                        <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="flex-1 flex flex-col h-full overflow-y-auto lg:overflow-hidden">
+                    
+                    <!-- Top Nav (Decorative) -->
+                    <div class="hidden md:flex items-center gap-12 px-12 pt-8">
+                        <div class="text-[#8ab4f8] text-sm font-bold tracking-widest uppercase relative pb-2 border-b-2 border-[#8ab4f8]">Engineer</div>
+                        <div class="text-white/50 text-sm font-bold tracking-widest uppercase relative pb-2">Builder</div>
+                        <div class="text-white/50 text-sm font-bold tracking-widest uppercase relative pb-2">Learner</div>
+                    </div>
+
+                    <!-- Profile Section -->
+                    <div class="flex flex-col lg:flex-row flex-1 p-8 md:p-12 gap-10 lg:min-h-0">
+                        
+                        <!-- Left Image -->
+                        <div class="w-full lg:w-[350px] shrink-0 flex items-start justify-center">
+                            <img src="https://github.com/MadhusudhanVellore.png" class="w-64 h-64 lg:w-full lg:h-auto lg:aspect-square object-cover rounded-3xl shadow-2xl border border-[#8ab4f8]/30 lg:sticky lg:top-0" alt="Madhu" />
+                        </div>
+
+                        <!-- Right Info -->
+                        <div class="flex-1 flex flex-col lg:overflow-y-auto lg:pr-4 pb-10 lg:pb-0" style="scrollbar-width: thin;">
+                            
+                            <!-- Header -->
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white mb-2">MADHU</h1>
+                                    <div class="text-[#8ab4f8] text-xl font-medium tracking-wide">マドゥ [Madhu]</div>
+                                </div>
+                                <div class="hidden md:block">
+                                    <span class="text-3xl font-script text-[#8ab4f8]/50" style="font-family: 'Brush Script MT', cursive;">Madhu</span>
+                                </div>
+                            </div>
+
+                            <!-- Basic Info Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-8 border-b border-[#8ab4f8]/20">
+                                <div class="flex gap-4 items-start">
+                                    <svg class="w-5 h-5 text-[#8ab4f8] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                    <div>
+                                        <div class="text-[#8ab4f8] text-sm font-medium mb-1">Real Name</div>
+                                        <div class="text-white text-base">Vellore Madhusudhan</div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-start">
+                                    <svg class="w-5 h-5 text-[#8ab4f8] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                    <div>
+                                        <div class="text-[#8ab4f8] text-sm font-medium mb-1">Nickname</div>
+                                        <div class="text-white text-base">Madhu | マドゥ</div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-start">
+                                    <svg class="w-5 h-5 text-[#8ab4f8] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                    <div>
+                                        <div class="text-[#8ab4f8] text-sm font-medium mb-1">Birthday</div>
+                                        <div class="text-white text-base">26-07-2000</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 py-6 border-b border-[#8ab4f8]/20">
+                                <div class="flex gap-4 items-start">
+                                    <svg class="w-5 h-5 text-[#8ab4f8] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                    <div>
+                                        <div class="text-[#8ab4f8] text-sm font-medium mb-1">Birthplace</div>
+                                        <div class="text-white text-base">Andhrapradesh, India</div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-start">
+                                    <svg class="w-5 h-5 text-[#8ab4f8] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
+                                    <div>
+                                        <div class="text-[#8ab4f8] text-sm font-medium mb-1">Catchphrase</div>
+                                        <div class="text-white text-base italic">"Build it. Break it. Master it."</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Detailed Description -->
+                            <div class="flex flex-col xl:flex-row gap-10 mt-8">
+                                <div class="flex-1 space-y-4 text-white/80 text-sm leading-relaxed">
+                                    <h3 class="text-[#8ab4f8] text-xl font-medium mb-2">About</h3>
+                                    <p>I'm Madhu, a passionate and curious engineer who loves turning ideas into real-world solutions.</p>
+                                    <p>I enjoy building, automating, and optimizing systems that make an impact.</p>
+                                    <p>I believe in continuous learning, sharing knowledge, and pushing boundaries.</p>
+                                    <p>When I'm not coding or automating, I explore new technologies, break things (safely 😄), and build better versions.</p>
+                                    <p>My goal is to become a platform engineer and contribute to building resilient, scalable, and intelligent systems.</p>
+                                </div>
+
+                                <!-- Right side bullets -->
+                                <div class="w-full xl:w-[280px] shrink-0 space-y-6">
+                                    <div class="flex gap-4 items-start">
+                                        <div class="w-10 h-10 rounded-full border border-[#8ab4f8]/30 flex items-center justify-center bg-[#8ab4f8]/5 shrink-0">
+                                            <svg class="w-5 h-5 text-[#8ab4f8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13.5 2.5a2.121 2.121 0 0 0-3 0L3 10.5M21 10.5l-7.5-7.5"></path><path d="M3 10.5v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-10"></path></svg>
+                                        </div>
+                                        <div>
+                                            <div class="text-[#8ab4f8] text-sm font-medium">Engineer</div>
+                                            <div class="text-white/60 text-xs mt-1">Solving problems.<br/>Building systems.<br/>Automating the future.</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-4 items-start">
+                                        <div class="w-10 h-10 rounded-full border border-[#8ab4f8]/30 flex items-center justify-center bg-[#8ab4f8]/5 shrink-0">
+                                            <svg class="w-5 h-5 text-[#8ab4f8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                                        </div>
+                                        <div>
+                                            <div class="text-[#8ab4f8] text-sm font-medium">Builder</div>
+                                            <div class="text-white/60 text-xs mt-1">From infrastructure to applications, I build things that scale.</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-4 items-start">
+                                        <div class="w-10 h-10 rounded-full border border-[#8ab4f8]/30 flex items-center justify-center bg-[#8ab4f8]/5 shrink-0">
+                                            <svg class="w-5 h-5 text-[#8ab4f8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                                        </div>
+                                        <div>
+                                            <div class="text-[#8ab4f8] text-sm font-medium">Lifelong Learner</div>
+                                            <div class="text-white/60 text-xs mt-1">Always curious.<br/>Always learning.<br/>Always leveling up.</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-4 items-start">
+                                        <div class="w-10 h-10 rounded-full border border-[#8ab4f8]/30 flex items-center justify-center bg-[#8ab4f8]/5 shrink-0">
+                                            <svg class="w-5 h-5 text-[#8ab4f8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                                        </div>
+                                        <div>
+                                            <div class="text-[#8ab4f8] text-sm font-medium">Focus Areas</div>
+                                            <div class="text-white/60 text-xs mt-1">DevOps | Cloud | Automation | Backend | Observability | AI</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Logo Modal -->
         <div id="logo-modal" class="fixed inset-0 z-[100] hidden bg-[#050505]/95 items-center justify-center backdrop-blur-md transition-all duration-300 overflow-y-auto pt-10 pb-10" onclick="this.classList.add('hidden'); this.classList.remove('flex')">
             <div class="flex flex-col lg:flex-row items-center lg:items-center justify-center gap-12 lg:gap-8 scale-up-anim max-w-5xl w-full p-8 text-white relative h-fit" onclick="event.stopPropagation()">
@@ -94,22 +246,53 @@
         </div>
 
         <!-- Header -->
-        <header class="h-9 px-10 flex justify-between items-center border-b border-white/5 backdrop-blur-sm sticky top-0 z-50">
-            <button onclick="document.getElementById('logo-modal').classList.remove('hidden'); document.getElementById('logo-modal').classList.add('flex')" class="flex items-center gap-4 hover:opacity-80 transition-opacity focus:outline-none">
-                <img src="https://github.com/MadhusudhanVellore.png" class="w-9 h-9 rounded-full border border-[#8ab4f8]/30 object-cover" alt="Madhusudhan" />
+        <header class="py-6 px-6 md:px-10 flex justify-between items-center bg-transparent border-transparent sticky top-0 z-[60] transition-all relative">
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <div class="w-12 h-12 rounded-full border-[4px] border-[#3d7a46] p-[1.5px] flex items-center justify-center">
+                        <img src="https://github.com/MadhusudhanVellore.png" class="w-full h-full rounded-full object-cover " alt="Mannu" />
+                    </div>
+                    <span class="absolute top-0 -left-1 w-3.5 h-3.5 bg-[#00ff00] rounded-full shadow-[0_0_5px_#00ff00]"></span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-white text-[17px] leading-none tracking-wide" style="font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;">Mannu</span>
+                    <span class="text-white text-[13px] leading-none mt-1 tracking-wide" style="font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;">V Madhusudhan</span>
+                </div>
+            </div>
+            
+            <!-- Mobile Toggle -->
+            <button onclick="document.getElementById('mobile-nav').classList.toggle('hidden')" class="md:hidden text-white focus:outline-none p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
             </button>
             
             <!-- Desktop Nav -->
-            <nav class="hidden md:flex gap-10 text-sm font-bold text-white uppercase tracking-widest">
-                <div class="group">
-                    <a href="#skills" class="hover:text-[#8ab4f8] transition-colors">Skills</a>
-                </div>
-                <div class="group">
-                    <a href="#experience" class="hover:text-[#8ab4f8] transition-colors">Experience</a>
-                </div>
-                <div class="group">
-                    <a href="#education" class="hover:text-[#8ab4f8] transition-colors">Education</a>
-                </div>
+            <nav class="hidden md:flex items-center gap-8 lg:gap-12">
+                <button onclick="document.getElementById('about-modal-new').classList.remove('hidden'); document.getElementById('about-modal-new').classList.add('flex')" class="text-white/70 hover:text-white transition-all text-xs font-semibold tracking-[0.2em] uppercase relative pb-3 group">
+                    About
+                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#d4a373] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                </button>
+                <a href="#skills" class="text-white/70 hover:text-white transition-all text-xs font-semibold tracking-[0.2em] uppercase relative pb-3 group">
+                    Skills
+                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#d4a373] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                </a>
+                <a href="#experience" class="text-white/70 hover:text-white transition-all text-xs font-semibold tracking-[0.2em] uppercase relative pb-3 group">
+                    Experience
+                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#d4a373] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                </a>
+                <a href="#education" class="text-white/70 hover:text-white transition-all text-xs font-semibold tracking-[0.2em] uppercase relative pb-3 group">
+                    Education
+                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#d4a373] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                </a>
+            </nav>
+            
+            <!-- Mobile Nav -->
+            <nav id="mobile-nav" class="hidden md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl flex flex-col items-center py-8 gap-8 shadow-[0_10px_30px_rgba(0,0,0,0.8)] border-b border-white/10">
+                <button onclick="document.getElementById('about-modal-new').classList.remove('hidden'); document.getElementById('about-modal-new').classList.add('flex'); document.getElementById('mobile-nav').classList.add('hidden')" class="text-white/70 hover:text-white transition-all text-sm font-semibold tracking-[0.2em] uppercase">About</button>
+                <a href="#skills" onclick="document.getElementById('mobile-nav').classList.add('hidden')" class="text-white/70 hover:text-white transition-all text-sm font-semibold tracking-[0.2em] uppercase">Skills</a>
+                <a href="#experience" onclick="document.getElementById('mobile-nav').classList.add('hidden')" class="text-white/70 hover:text-white transition-all text-sm font-semibold tracking-[0.2em] uppercase">Experience</a>
+                <a href="#education" onclick="document.getElementById('mobile-nav').classList.add('hidden')" class="text-white/70 hover:text-white transition-all text-sm font-semibold tracking-[0.2em] uppercase">Education</a>
             </nav>
         </header>
 
@@ -189,227 +372,53 @@
 
             <!-- Full Skills Grid -->
             <section id="skills" class="mt-40">
-                <div class="mb-12">
-                    <h2 class="text-4xl font-bold mb-4 tracking-tight">Technical Stack</h2>
-                    <div class="accent-line mb-10"></div>
+                <div class="flex flex-col items-center mb-16">
+                    <span class="bg-[#1f1f2e] text-white/80 px-4 py-1.5 rounded-full text-sm font-semibold mb-6">Skills</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white text-center">The skills, tools and technologies I am really good at:</h2>
                 </div>
     
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-y-12 gap-x-8 max-w-5xl mx-auto items-end justify-items-center">
 
                     <!-- Go -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal w-[320px] max-w-full mr-auto md:w-full md:max-w-none md:mr-0" style="transition-delay: 0ms;">
-                        <div class="w-1.5 shrink-0" style="background-color: #00ADD8;"></div>
-                        <div class="p-6 w-full">
-                            <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" class="w-8 h-8 object-contain" alt="Go" />
-                                <h3 class="font-bold text-xl text-white">Go</h3>
-                            </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">backend language</p>
-                            <ul class="text-sm space-y-2 text-white/70 font-mono">
-
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>high-performance concurrency</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>RESTful services</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>microservices</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- PostgreSQL -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal w-[320px] max-w-full mr-auto md:w-full md:max-w-none md:mr-0" style="transition-delay: 100ms;">
-                        <div class="w-1.5 shrink-0" style="background-color: #4169E1;"></div>
-                        <div class="p-6 w-full">
-                            <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" class="w-8 h-8 object-contain" alt="PostgreSQL" />
-                                <h3 class="font-bold text-xl text-white">PostgreSQL</h3>
-                            </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">relational database</p>
-                            <ul class="text-sm space-y-2 text-white/70 font-mono">
-
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>complex querying</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>ACID transactions</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>schema design</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Terraform -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal w-[320px] max-w-full mr-auto md:w-full md:max-w-none md:mr-0" style="transition-delay: 200ms;">
-                        <div class="w-1.5 shrink-0" style="background-color: #844FBA;"></div>
-                        <div class="p-6 w-full">
-                            <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" class="w-8 h-8 object-contain" alt="Terraform" />
-                                <h3 class="font-bold text-xl text-white">Terraform</h3>
-                            </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">infrastructure as code</p>
-                            <ul class="text-sm space-y-2 text-white/70 font-mono">
-
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>cloud provisioning</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>state management</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>module creation</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- AWS -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal w-[320px] max-w-full mr-auto md:w-full md:max-w-none md:mr-0" style="transition-delay: 0ms;">
-                        <div class="w-1.5 shrink-0" style="background-color: #FF9900;"></div>
-                        <div class="p-6 w-full">
-                            <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="w-8 h-8 object-contain brightness-0 invert" alt="AWS" />
-                                <h3 class="font-bold text-xl text-white">AWS</h3>
-                            </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">cloud provider</p>
-                            <ul class="text-sm space-y-2 text-white/70 font-mono">
-
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>EC2, S3, RDS</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>IAM security</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>serverless computing</span></li>
-                            </ul>
-                        </div>
+                    <div class="flex flex-col items-center justify-center reveal" style="transition-delay: 0ms;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" class="w-14 h-14 md:w-16 md:h-16 object-contain mb-3" alt="Go" />
+                        <span class="text-white/80 font-bold text-sm md:text-base">Go</span>
                     </div>
 
                     <!-- Docker -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal w-[320px] max-w-full mr-auto md:w-full md:max-w-none md:mr-0" style="transition-delay: 100ms;">
-                        <div class="w-1.5 shrink-0" style="background-color: #2496ED;"></div>
-                        <div class="p-6 w-full">
-                            <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" class="w-8 h-8 object-contain" alt="Docker" />
-                                <h3 class="font-bold text-xl text-white">Docker</h3>
-                            </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">containerization</p>
-                            <ul class="text-sm space-y-2 text-white/70 font-mono">
-
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>image building</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>multi-stage builds</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>container management</span></li>
-                            </ul>
-                        </div>
+                    <div class="flex flex-col items-center justify-center reveal" style="transition-delay: 100ms;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" class="w-14 h-14 md:w-16 md:h-16 object-contain mb-3" alt="Docker" />
+                        <span class="text-white/80 font-bold text-sm md:text-base">Docker</span>
                     </div>
 
                     <!-- Kubernetes -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal w-[320px] max-w-full mr-auto md:w-full md:max-w-none md:mr-0" style="transition-delay: 200ms;">
-                        <div class="w-1.5 shrink-0" style="background-color: #326CE5;"></div>
-                        <div class="p-6 w-full">
-                            <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" class="w-8 h-8 object-contain" alt="Kubernetes" />
-                                <h3 class="font-bold text-xl text-white">Kubernetes</h3>
-                            </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">container orchestration</p>
-                            <ul class="text-sm space-y-2 text-white/70 font-mono">
-
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>cluster management</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>pod scaling</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>service discovery</span></li>
-                            </ul>
-                        </div>
+                    <div class="flex flex-col items-center justify-center reveal" style="transition-delay: 200ms;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" class="w-14 h-14 md:w-16 md:h-16 object-contain mb-3" alt="Kubernetes" />
+                        <span class="text-white/80 font-bold text-sm md:text-base">Kubernetes</span>
                     </div>
 
                     <!-- Kafka -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal w-[320px] max-w-full mr-auto md:w-full md:max-w-none md:mr-0" style="transition-delay: 0ms;">
-                        <div class="w-1.5 shrink-0" style="background-color: #FFFFFF;"></div>
-                        <div class="p-6 w-full">
-                            <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg" class="w-8 h-8 object-contain brightness-0 invert" alt="Kafka" />
-                                <h3 class="font-bold text-xl text-white">Kafka</h3>
-                            </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">event streaming</p>
-                            <ul class="text-sm space-y-2 text-white/70 font-mono">
-
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>publish-subscribe messaging</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>high-throughput</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>real-time pipelines</span></li>
-                            </ul>
-                        </div>
+                    <div class="flex flex-col items-center justify-center reveal" style="transition-delay: 0ms;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg" class="w-14 h-14 md:w-16 md:h-16 object-contain mb-3 brightness-0 invert" alt="Kafka" />
+                        <span class="text-white/80 font-bold text-sm md:text-base">Kafka</span>
                     </div>
 
                     <!-- Linux -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal w-[320px] max-w-full mr-auto md:w-full md:max-w-none md:mr-0" style="transition-delay: 100ms;">
-                        <div class="w-1.5 shrink-0" style="background-color: #FCC624;"></div>
-                        <div class="p-6 w-full">
-                            <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" class="w-8 h-8 object-contain" alt="Linux" />
-                                <h3 class="font-bold text-xl text-white">Linux</h3>
-                            </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">operating system</p>
-                            <ul class="text-sm space-y-2 text-white/70 font-mono">
-
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>system administration</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>shell scripting</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>server management</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- GitHub Actions -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal w-[320px] max-w-full mr-auto md:w-full md:max-w-none md:mr-0" style="transition-delay: 200ms;">
-                        <div class="w-1.5 shrink-0" style="background-color: #2088FF;"></div>
-                        <div class="p-6 w-full">
-                            <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg" class="w-8 h-8 object-contain" alt="GitHub Actions" />
-                                <h3 class="font-bold text-xl text-white">GitHub Actions</h3>
-                            </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">ci/cd automation</p>
-                            <ul class="text-sm space-y-2 text-white/70 font-mono">
-
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>workflow automation</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>build pipelines</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>deployment</span></li>
-                            </ul>
-                        </div>
+                    <div class="flex flex-col items-center justify-center reveal" style="transition-delay: 100ms;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" class="w-14 h-14 md:w-16 md:h-16 object-contain mb-3" alt="Linux" />
+                        <span class="text-white/80 font-bold text-sm md:text-base">Linux</span>
                     </div>
 
                     <!-- gRPC -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal w-[320px] max-w-full mr-auto md:w-full md:max-w-none md:mr-0" style="transition-delay: 0ms;">
-                        <div class="w-1.5 shrink-0" style="background-color: #00A9E2;"></div>
-                        <div class="p-6 w-full">
-                            <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grpc/grpc-original.svg" class="w-8 h-8 object-contain" alt="gRPC" />
-                                <h3 class="font-bold text-xl text-white">gRPC</h3>
-                            </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">rpc framework</p>
-                            <ul class="text-sm space-y-2 text-white/70 font-mono">
-
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>protocol buffers</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>microservices communication</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>high-performance</span></li>
-                            </ul>
-                        </div>
+                    <div class="flex flex-col items-center justify-center reveal" style="transition-delay: 200ms;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grpc/grpc-original.svg" class="w-14 h-14 md:w-16 md:h-16 object-contain mb-3" alt="gRPC" />
+                        <span class="text-white/80 font-bold text-sm md:text-base">gRPC</span>
                     </div>
 
                     <!-- Bash -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal w-[320px] max-w-full mr-auto md:w-full md:max-w-none md:mr-0" style="transition-delay: 100ms;">
-                        <div class="w-1.5 shrink-0" style="background-color: #4EAA25;"></div>
-                        <div class="p-6 w-full">
-                            <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" class="w-8 h-8 object-contain brightness-0 invert" alt="Bash" />
-                                <h3 class="font-bold text-xl text-white">Bash</h3>
-                            </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">shell scripting</p>
-                            <ul class="text-sm space-y-2 text-white/70 font-mono">
-
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>automation scripts</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>environment setup</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>cli tools</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Python -->
-                    <div class="bg-[#121212] rounded-2xl shadow-sm border border-white/5 flex overflow-hidden card-hover reveal w-[320px] max-w-full mr-auto md:w-full md:max-w-none md:mr-0" style="transition-delay: 200ms;">
-                        <div class="w-1.5 shrink-0" style="background-color: #3776AB;"></div>
-                        <div class="p-6 w-full">
-                            <div class="flex items-center gap-3 mb-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" class="w-8 h-8 object-contain" alt="Python" />
-                                <h3 class="font-bold text-xl text-white">Python</h3>
-                            </div>
-                            <p class="text-xs text-white/40 font-mono mb-4 uppercase tracking-wider">programming language</p>
-                            <ul class="text-sm space-y-2 text-white/70 font-mono">
-
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>scripting</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>automation</span></li>
-                                <li class="flex items-start gap-2"><span class="text-[#8ab4f8] text-[10px] mt-1">●</span><span>data processing</span></li>
-                            </ul>
-                        </div>
+                    <div class="flex flex-col items-center justify-center reveal" style="transition-delay: 0ms;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" class="w-14 h-14 md:w-16 md:h-16 object-contain mb-3 brightness-0 invert" alt="Bash" />
+                        <span class="text-white/80 font-bold text-sm md:text-base">Bash</span>
                     </div>
                 </div>
             </section>
