@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>madhu-portfolio</title>
+    <title>V Madhusudhan Portfolio | Linux Administrator</title>
+    <meta name="description" content="Professional portfolio for Linux Administrator featuring skills in Linux Systems Administration, Cloud, Automation, and DevOps.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Michroma&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Tailwind Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
@@ -14,10 +15,18 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    colors: {
+                        parchment: '#f5f0e6',
+                        ticket: '#faf6ee',
+                        ink: '#0d1b2a',
+                        rust: '#c85a2d',
+                        'rust-light': '#fbeee7',
+                        bordercol: '#dfd5c4',
+                    },
                     fontFamily: {
-                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-                        terminal: ['Michroma', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'ui-sans-serif', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Space Grotesk', 'monospace'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
                     },
                 }
             }
@@ -25,506 +34,593 @@
     </script>
     <style>
         @keyframes scaleUp {
-            from { transform: scale(0.8); opacity: 0; }
+            from { transform: scale(0.92); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
         .scale-up-anim {
-            animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-[#8ab4f8]/30 grid-bg text-white bg-black font-sans antialiased">
+<body class="min-h-screen flex flex-col selection:bg-[#c85a2d]/25 ticket-theme text-[#0d1b2a] bg-[#f5f0e6] font-sans antialiased">
     <div id="root">
 
-        <!-- About Modal -->
-        <div id="about-modal-new" class="fixed inset-0 z-[100] hidden bg-black/80 items-center justify-center backdrop-blur-md transition-all duration-300" onclick="this.classList.add('hidden'); this.classList.remove('flex')">
-            <div class="relative w-full h-full max-w-7xl max-h-[90vh] md:rounded-3xl overflow-hidden bg-gradient-to-br from-[#001e4a] via-[#003b8e] to-[#001a40] text-white flex flex-col md:flex-row shadow-2xl scale-up-anim border border-[#8ab4f8]/20" onclick="event.stopPropagation()">
+        <!-- Logo Modal -->
+        <div id="logo-modal" class="fixed inset-0 z-[100] hidden bg-[#0d1b2a]/80 items-center justify-center backdrop-blur-sm transition-all duration-300 p-4" onclick="this.classList.add('hidden'); this.classList.remove('flex')">
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-10 scale-up-anim max-w-4xl w-full p-8 rounded-3xl bg-[#faf6ee] border-2 border-[#dfd5c4] shadow-2xl relative" onclick="event.stopPropagation()">
                 
                 <!-- Close Button -->
-                <button onclick="document.getElementById('about-modal-new').classList.add('hidden'); document.getElementById('about-modal-new').classList.remove('flex')" class="absolute top-6 right-6 z-50 text-white/50 hover:text-white transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <button onclick="document.getElementById('logo-modal').classList.add('hidden'); document.getElementById('logo-modal').classList.remove('flex')" class="absolute top-5 right-5 text-[#0d1b2a]/50 hover:text-[#c85a2d] p-2 rounded-full border border-[#dfd5c4] bg-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
 
-                <!-- Left Sidebar -->
-                <div class="hidden md:flex flex-col w-20 border-r border-[#8ab4f8]/20 bg-[#001433]/50 items-center py-8 gap-8 shrink-0">
-                    <div class="text-center text-[#8ab4f8] font-bold text-xl leading-tight mb-4">VM<br/>2000</div>
-                    <div class="flex flex-col gap-8 w-full items-center text-[#8ab4f8]/50">
-                        <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
-                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                    </div>
+                <!-- Profile Image -->
+                <div class="shrink-0 relative">
+                    <img src="https://github.com/MadhusudhanVellore.png" class="w-60 h-60 lg:w-72 lg:h-72 rounded-full border-4 border-[#c85a2d]/40 object-cover shadow-xl bg-white" alt="Madhusudhan" />
                 </div>
 
-                <!-- Main Content -->
-                <div class="flex-1 flex flex-col h-full overflow-y-auto lg:overflow-hidden">
-                    
-                    <!-- Top Nav (Decorative) -->
-                    <div class="hidden md:flex items-center gap-12 px-12 pt-8">
-                        <div class="text-[#8ab4f8] text-sm font-bold tracking-widest uppercase relative pb-2 border-b-2 border-[#8ab4f8]">Engineer</div>
-                        <div class="text-white/50 text-sm font-bold tracking-widest uppercase relative pb-2">Builder</div>
-                        <div class="text-white/50 text-sm font-bold tracking-widest uppercase relative pb-2">Learner</div>
+                <!-- Details List -->
+                <div class="flex flex-col justify-center space-y-4 w-full max-w-md">
+                    <div class="text-xs font-mono font-bold tracking-[0.2em] text-[#c85a2d] uppercase">IDENTIFICATION CARD</div>
+                    <div class="p-4 rounded-2xl bg-[#f4ece0] border border-[#dfd5c4] flex justify-between items-center">
+                        <span class="text-[#c85a2d] font-mono text-xs font-bold uppercase">Name:</span>
+                        <span class="text-[#0d1b2a] font-bold text-lg">Madhusudhan</span>
                     </div>
-
-                    <!-- Profile Section -->
-                    <div class="flex flex-col lg:flex-row flex-1 p-8 md:p-12 gap-10 lg:min-h-0">
-                        
-                        <!-- Left Image -->
-                        <div class="w-full lg:w-[350px] shrink-0 flex items-start justify-center">
-                            <img src="https://github.com/MadhusudhanVellore.png" class="w-64 h-64 lg:w-full lg:h-auto lg:aspect-square object-cover rounded-full shadow-2xl border border-[#8ab4f8]/30 lg:sticky lg:top-0" alt="Madhu" />
-                        </div>
-
-                        <!-- Right Info -->
-                        <div class="flex-1 flex flex-col lg:overflow-y-auto lg:pr-4 pb-10 lg:pb-0" style="scrollbar-width: thin;">
-                            
-                            <!-- Header -->
-                            <div class="flex justify-between items-start mb-2">
-                                <div>
-                                    <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white mb-2">MADHU</h1>
-                                    <div class="text-[#8ab4f8] text-xl font-medium tracking-wide">マドゥ [Madhu]</div>
-                                </div>
-                                <div class="hidden md:block">
-                                    <span class="text-3xl font-script text-[#8ab4f8]/50" style="font-family: 'Brush Script MT', cursive;">Madhu</span>
-                                </div>
-                            </div>
-
-                            <!-- Basic Info Grid -->
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-8 border-b border-[#8ab4f8]/20">
-                                <div class="flex gap-4 items-start">
-                                    <svg class="w-5 h-5 text-[#8ab4f8] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                    <div>
-                                        <div class="text-[#8ab4f8] text-sm font-medium mb-1">Real Name</div>
-                                        <div class="text-white text-base">Vellore Madhusudhan</div>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4 items-start">
-                                    <svg class="w-5 h-5 text-[#8ab4f8] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                    <div>
-                                        <div class="text-[#8ab4f8] text-sm font-medium mb-1">Nickname</div>
-                                        <div class="text-white text-base">Madhu | マドゥ</div>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4 items-start">
-                                    <svg class="w-5 h-5 text-[#8ab4f8] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                    <div>
-                                        <div class="text-[#8ab4f8] text-sm font-medium mb-1">Birthday</div>
-                                        <div class="text-white text-base">26-07-2000</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 py-6 border-b border-[#8ab4f8]/20">
-                                <div class="flex gap-4 items-start">
-                                    <svg class="w-5 h-5 text-[#8ab4f8] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                    <div>
-                                        <div class="text-[#8ab4f8] text-sm font-medium mb-1">Birthplace</div>
-                                        <div class="text-white text-base">Andhrapradesh, India</div>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4 items-start">
-                                    <svg class="w-5 h-5 text-[#8ab4f8] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
-                                    <div>
-                                        <div class="text-[#8ab4f8] text-sm font-medium mb-1">Catchphrase</div>
-                                        <div class="text-white text-base italic">"Build it. Break it. Master it."</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Detailed Description -->
-                            <div class="flex flex-col xl:flex-row gap-10 mt-8">
-                                <div class="flex-1 space-y-4 text-white/80 text-sm leading-relaxed">
-                                    <h3 class="text-[#8ab4f8] text-xl font-medium mb-2">About</h3>
-                                    <p>I'm Madhu, a passionate and curious engineer who loves turning ideas into real-world solutions.</p>
-                                    <p>I enjoy building, automating, and optimizing systems that make an impact.</p>
-                                    <p>I believe in continuous learning, sharing knowledge, and pushing boundaries.</p>
-                                    <p>When I'm not coding or automating, I explore new technologies, break things (safely 😄), and build better versions.</p>
-                                    <p>My goal is to become a platform engineer and contribute to building resilient, scalable, and intelligent systems.</p>
-                                </div>
-
-                                <!-- Right side bullets -->
-                                <div class="w-full xl:w-[280px] shrink-0 space-y-6">
-                                    <div class="flex gap-4 items-start">
-                                        <div class="w-10 h-10 rounded-full border border-[#8ab4f8]/30 flex items-center justify-center bg-[#8ab4f8]/5 shrink-0">
-                                            <svg class="w-5 h-5 text-[#8ab4f8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13.5 2.5a2.121 2.121 0 0 0-3 0L3 10.5M21 10.5l-7.5-7.5"></path><path d="M3 10.5v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-10"></path></svg>
-                                        </div>
-                                        <div>
-                                            <div class="text-[#8ab4f8] text-sm font-medium">Engineer</div>
-                                            <div class="text-white/60 text-xs mt-1">Solving problems.<br/>Building systems.<br/>Automating the future.</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex gap-4 items-start">
-                                        <div class="w-10 h-10 rounded-full border border-[#8ab4f8]/30 flex items-center justify-center bg-[#8ab4f8]/5 shrink-0">
-                                            <svg class="w-5 h-5 text-[#8ab4f8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
-                                        </div>
-                                        <div>
-                                            <div class="text-[#8ab4f8] text-sm font-medium">Builder</div>
-                                            <div class="text-white/60 text-xs mt-1">From infrastructure to applications, I build things that scale.</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex gap-4 items-start">
-                                        <div class="w-10 h-10 rounded-full border border-[#8ab4f8]/30 flex items-center justify-center bg-[#8ab4f8]/5 shrink-0">
-                                            <svg class="w-5 h-5 text-[#8ab4f8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-                                        </div>
-                                        <div>
-                                            <div class="text-[#8ab4f8] text-sm font-medium">Lifelong Learner</div>
-                                            <div class="text-white/60 text-xs mt-1">Always curious.<br/>Always learning.<br/>Always leveling up.</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex gap-4 items-start">
-                                        <div class="w-10 h-10 rounded-full border border-[#8ab4f8]/30 flex items-center justify-center bg-[#8ab4f8]/5 shrink-0">
-                                            <svg class="w-5 h-5 text-[#8ab4f8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                                        </div>
-                                        <div>
-                                            <div class="text-[#8ab4f8] text-sm font-medium">Focus Areas</div>
-                                            <div class="text-white/60 text-xs mt-1">DevOps | Cloud | Automation | Backend | Observability | AI</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="p-4 rounded-2xl bg-[#f4ece0] border border-[#dfd5c4] flex justify-between items-center">
+                        <span class="text-[#c85a2d] font-mono text-xs font-bold uppercase">Role:</span>
+                        <span class="text-[#0d1b2a] font-bold text-lg">Linux Administrator</span>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-[#f4ece0] border border-[#dfd5c4] flex justify-between items-center">
+                        <span class="text-[#c85a2d] font-mono text-xs font-bold uppercase">Age:</span>
+                        <span class="text-[#0d1b2a] font-bold text-lg">27</span>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-[#f4ece0] border border-[#dfd5c4] flex justify-between items-center">
+                        <span class="text-[#c85a2d] font-mono text-xs font-bold uppercase">Gender:</span>
+                        <span class="text-[#0d1b2a] font-bold text-lg">Male</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Logo Modal -->
-        <div id="logo-modal" class="fixed inset-0 z-[100] hidden bg-[#050505]/95 items-center justify-center backdrop-blur-md transition-all duration-300 overflow-y-auto pt-10 pb-10" onclick="this.classList.add('hidden'); this.classList.remove('flex')">
-            <div class="flex flex-col lg:flex-row items-center lg:items-center justify-center gap-12 lg:gap-8 scale-up-anim max-w-5xl w-full p-8 text-white relative h-fit" onclick="event.stopPropagation()">
-                
-                <!-- Profile Image -->
-                <div class="shrink-0 relative z-10 flex items-center justify-center">
-                    <img src="https://github.com/MadhusudhanVellore.png" class="w-72 h-72 lg:w-96 lg:h-96 rounded-full border border-[#8ab4f8]/50 object-cover shadow-[0_0_80px_rgba(138,180,248,0.15)] bg-black" alt="Madhusudhan" />
+        <!-- Resume Fullscreen Viewer Modal -->
+        <div id="resume-modal" class="fixed inset-0 z-[100] hidden bg-[#0d1b2a]/85 items-center justify-center backdrop-blur-md transition-all duration-300 p-2 sm:p-6 overflow-y-auto" onclick="closeResumeModal()">
+            <div class="relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl p-6 sm:p-10 md:p-14 my-auto border-2 border-[#dfd5c4] scale-up-anim" onclick="event.stopPropagation()">
+                <!-- Modal Top Controls -->
+                <div class="flex items-center justify-between border-b border-gray-200 pb-4 mb-6 no-print">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-[#c85a2d]"></span>
+                        <span class="font-mono text-xs font-bold text-[#0d1b2a] uppercase tracking-wider">RESUME DOCUMENT VIEWER</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button onclick="closeResumeModal()" class="p-1.5 rounded-full hover:bg-gray-100 text-gray-500 hover:text-gray-900 transition-colors cursor-pointer" title="Close">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                        </button>
+                    </div>
                 </div>
 
-                <!-- Desktop SVG Connecting Lines -->
-                <div class="hidden lg:block absolute left-[50%] top-1/2 -translate-y-1/2 w-[80px] h-80 z-0 -ml-[40px] pointer-events-none">
-                    <svg width="100%" height="100%" viewBox="0 0 80 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Name line (top) -->
-                        <path d="M 0 60 C 40 60 40 40 80 40" stroke="#8ab4f8" stroke-width="1" stroke-opacity="0.5"/>
-                        <circle cx="0" cy="60" r="3" fill="#8ab4f8"/>
-                        <!-- Age line (upper middle) -->
-                        <path d="M 0 120 C 40 120 40 120 80 120" stroke="#8ab4f8" stroke-width="1" stroke-opacity="0.5"/>
-                        <circle cx="0" cy="120" r="3" fill="#8ab4f8"/>
-                        <!-- Gender line (lower middle) -->
-                        <path d="M 0 200 C 40 200 40 200 80 200" stroke="#8ab4f8" stroke-width="1" stroke-opacity="0.5"/>
-                        <circle cx="0" cy="200" r="3" fill="#8ab4f8"/>
-                    </svg>
-                </div>
+                <!-- Exact Resume Content in Modal -->
+                <div>
+                    <!-- Header -->
+                    <div class="mb-4">
+                        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#111827] uppercase">V MADHUSUDHAN</h1>
+                        <h2 class="text-base sm:text-lg font-bold tracking-wide text-[#b45309] uppercase mt-1">LINUX ADMINISTRATOR</h2>
+                    </div>
 
-                <!-- Details List -->
-                <div class="flex flex-col justify-center w-full lg:w-auto relative lg:pl-[40px] z-10 space-y-10 lg:h-80">
-                    
-                    <!-- Mobile only connecting lines below profile -->
-                    <div class="block lg:hidden absolute left-1/2 top-[-30px] bottom-0 w-[1px] bg-[#8ab4f8]/20 -translate-x-1/2 z-0 hidden"></div>
-
-                    <!-- Name -->
-                    <div class="relative flex flex-col items-center lg:items-start group lg:absolute lg:top-[40px] lg:-translate-y-1/2 lg:left-[40px] w-full">
-                        <div class="flex items-center gap-4 bg-[#121212]/80 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none px-6 py-3 lg:p-0 rounded-2xl lg:rounded-none border border-white/5 lg:border-none w-full max-w-sm lg:max-w-none shadow-sm lg:shadow-none mx-auto lg:mx-0">
-                            <span class="text-[#8ab4f8] font-mono text-sm md:text-base uppercase tracking-widest lg:w-16 text-right lg:text-left">Name:</span>
-                            <span class="text-white font-bold text-xl md:text-2xl tracking-tight">Madhusudhan</span>
+                    <!-- Contact Details -->
+                    <div class="space-y-1.5 text-xs sm:text-sm border-b border-gray-200 pb-5 mb-5 text-gray-800">
+                        <div class="flex flex-wrap items-center gap-x-6 gap-y-1">
+                            <span><strong class="font-semibold text-[#b45309]">Phone</strong> <a href="tel:+917396302695" class="hover:underline">(91) 7396302695</a></span>
+                            <span><strong class="font-semibold text-[#b45309]">Email</strong> <a href="mailto:madhusudhan.vellore@gmail.com" class="hover:underline">madhusudhan.vellore@gmail.com</a></span>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-x-6 gap-y-1">
+                            <span><strong class="font-semibold text-[#b45309]">Address</strong> BTM Layout, Bengaluru</span>
+                            <span><strong class="font-semibold text-[#b45309]">LinkedIn</strong> <a href="https://linkedin.com/in/v-madhusudhan-b1b403350" target="_blank" rel="noopener noreferrer" class="hover:underline text-blue-700">linkedin.com/in/v-madhusudhan-b1b403350</a></span>
+                        </div>
+                        <div>
+                            <span><strong class="font-semibold text-[#b45309]">Portfolio</strong> <a href="https://madhusudhanvellore.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="hover:underline text-blue-700">https://madhusudhanvellore.github.io/portfolio/</a></span>
                         </div>
                     </div>
 
-                    <!-- Age -->
-                    <div class="relative flex flex-col items-center lg:items-start group lg:absolute lg:top-[120px] lg:-translate-y-1/2 lg:left-[40px] w-full">
-                        <div class="flex items-center gap-4 bg-[#121212]/80 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none px-6 py-3 lg:p-0 rounded-2xl lg:rounded-none border border-white/5 lg:border-none w-full max-w-sm lg:max-w-none shadow-sm lg:shadow-none mx-auto lg:mx-0">
-                            <span class="text-[#8ab4f8] font-mono text-sm md:text-base uppercase tracking-widest lg:w-16 text-right lg:text-left">Age:</span>
-                            <span class="text-white font-bold text-xl md:text-2xl tracking-tight">27</span>
-                        </div>
+                    <!-- Profile Summary -->
+                    <div class="text-xs sm:text-sm text-gray-800 leading-relaxed mb-6">
+                        Linux Administrator with 7 months of hands-on experience in production support and operations, with strong knowledge of Linux administration, troubleshooting, and system debugging. Skilled in <strong>Bash</strong> and <strong>Python scripting</strong>, <strong>Ansible automation</strong>, <strong>Docker</strong>, <strong>Kubernetes</strong>, <strong>Nginx</strong>, and <strong>Git/GitHub</strong>. Experienced in supporting production environments, automating operational tasks, and resolving infrastructure issues efficiently. Seeking to leverage strong troubleshooting and automation skills in a Linux/System Administration role.
                     </div>
 
-                    <!-- Gender -->
-                    <div class="relative flex flex-col items-center lg:items-start group lg:absolute lg:top-[200px] lg:-translate-y-1/2 lg:left-[40px] w-full">
-                        <div class="flex items-center gap-4 bg-[#121212]/80 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none px-6 py-3 lg:p-0 rounded-2xl lg:rounded-none border border-white/5 lg:border-none w-full max-w-sm lg:max-w-none shadow-sm lg:shadow-none mx-auto lg:mx-0">
-                            <span class="text-[#8ab4f8] font-mono text-sm md:text-base uppercase tracking-widest lg:w-16 text-right lg:text-left">Gender:</span>
-                            <span class="text-white font-bold text-xl md:text-2xl tracking-tight">Male</span>
-                        </div>
+                    <!-- Work Experience -->
+                    <div class="mb-6">
+                        <h3 class="text-sm sm:text-base font-bold text-[#111827] uppercase tracking-wide mb-2">WORK EXPERIENCE</h3>
+                        <div class="text-sm font-semibold text-[#b45309]">Graduate Engineer, Operations</div>
+                        <div class="text-xs text-gray-700 font-medium">Mavenir Systems Private Limited</div>
+                        <div class="text-xs font-semibold text-[#b45309] mt-0.5">Aug 2024 - Feb 2025 — Bengaluru-IN</div>
+                        
+                        <div class="text-xs font-semibold text-[#b45309] mt-2.5 mb-1.5">Key Responsibilities:</div>
+                        <ul class="space-y-1.5 text-xs text-gray-800 list-disc pl-5 leading-relaxed">
+                            <li><strong>Support &amp; Maintenance:</strong> Provide ongoing support for the Voicemail Application Server (VMAS) product, ensuring smooth operation and high availability of services.</li>
+                            <li><strong>Ticket Resolution:</strong> Troubleshoot and resolve technical issues reported via support tickets, ensuring timely and accurate resolution to minimize downtime and customer impact.</li>
+                            <li><strong>Issue Diagnosis:</strong> Conduct root cause analysis of technical issues, identifying the source of problems within the VMAS product and applying fixes.</li>
+                            <li><strong>System Monitoring:</strong> Continuously monitor the performance of the VMAS product, proactively identifying potential issues and taking corrective actions to maintain optimal system functionality.</li>
+                            <li><strong>Documentation:</strong> Maintain detailed documentation of troubleshooting processes, resolution steps, and new feature implementations for internal reference and customer use.</li>
+                            <li><strong>Change Records (CRs) Maintenance:</strong> Experienced in maintaining Change Records (CRs) to document and track activities performed on servers, ensuring compliance, traceability, and accountability in operational workflows.</li>
+                        </ul>
                     </div>
 
+                    <!-- Education -->
+                    <div class="mb-6">
+                        <h3 class="text-sm sm:text-base font-bold text-[#111827] uppercase tracking-wide mb-1.5">EDUCATION</h3>
+                        <div class="text-xs sm:text-sm font-semibold text-[#b45309]">B.Tech. Computer-Science, SDTN</div>
+                        <div class="text-xs font-semibold text-[#b45309] mt-0.5">2022 — Puttu, IN</div>
+                    </div>
+
+                    <!-- Relevant Skills -->
+                    <div>
+                        <h3 class="text-sm sm:text-base font-bold text-[#111827] uppercase tracking-wide mb-1.5">RELEVANT SKILLS</h3>
+                        <div class="text-xs text-gray-800 leading-relaxed space-y-1">
+                            <p>Linux Administration • Bash Scripting • Ansible Automation • Python scripting •</p>
+                            <p>Git &amp; Github • Docker &amp; Kubernetes • Nginx Webserver • Log Monitoring &amp; Analysis • Debugging &amp; Troubleshooting •</p>
+                            <p>Packet Analysis(Wireshark,Tshark) • AWS • Terraform(IaC)</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Header -->
-        <header class="py-6 px-6 md:px-10 flex justify-between items-center bg-transparent border-transparent sticky top-0 z-[60] transition-all">
+        <header class="py-4 px-6 md:px-10 flex justify-between items-center bg-[#f5f0e6]/90 backdrop-blur-md border-b border-[#dfd5c4] sticky top-0 z-[60] transition-all">
             <div class="flex items-center gap-3">
-                <div class="relative">
-                    <div class="w-12 h-12 rounded-full border-[4px] border-[#3d7a46] p-[1.5px] flex items-center justify-center">
-                        <img src="https://github.com/MadhusudhanVellore.png" class="w-full h-full rounded-full object-cover " alt="Mannu" />
+                <div class="relative cursor-pointer group" onclick="document.getElementById('logo-modal').classList.remove('hidden'); document.getElementById('logo-modal').classList.add('flex')">
+                    <div class="w-12 h-12 rounded-full border-2 border-[#c85a2d] p-[1.5px] flex items-center justify-center bg-[#faf6ee] shadow-sm group-hover:scale-105 transition-transform">
+                        <img src="https://github.com/MadhusudhanVellore.png" class="w-full h-full rounded-full object-cover" alt="Mannu" />
                     </div>
-                    <span class="absolute top-0 -left-1 w-3.5 h-3.5 bg-[#00ff00] rounded-full shadow-[0_0_5px_#00ff00]"></span>
                 </div>
-                <div class="flex flex-col">
-                    <span class="text-white text-[17px] leading-none tracking-wide" style="font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;">Mannu</span>
-                    <span class="text-white text-[13px] leading-none mt-1 tracking-wide" style="font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;">V Madhusudhan</span>
+                <div class="flex flex-col cursor-pointer" onclick="document.getElementById('logo-modal').classList.remove('hidden'); document.getElementById('logo-modal').classList.add('flex')">
+                    <span class="text-[#0d1b2a] font-bold text-[17px] leading-none tracking-tight">Mannu</span>
+                    <span class="text-[#c85a2d] text-[12px] leading-none mt-1 font-mono font-semibold tracking-wider uppercase">V Madhusudhan</span>
                 </div>
             </div>
             
             <!-- Mobile Toggle -->
-            <button onclick="document.getElementById('mobile-nav').classList.toggle('hidden')" class="md:hidden text-white focus:outline-none p-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <button onclick="document.getElementById('mobile-nav').classList.toggle('hidden')" class="md:hidden text-[#0d1b2a] focus:outline-none p-2 rounded-xl hover:bg-[#dfd5c4]/40 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
             
             <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-8 lg:gap-12">
-                <button onclick="document.getElementById('about-modal-new').classList.remove('hidden'); document.getElementById('about-modal-new').classList.add('flex')" class="text-white/70 hover:text-white transition-all text-xs font-semibold tracking-[0.2em] uppercase relative pb-3 group">
-                    About
-                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#d4a373] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+            <nav class="hidden md:flex items-center gap-8 lg:gap-10">
+                <button type="button" onclick="openResumeModal()" class="text-[#0d1b2a]/75 hover:text-[#c85a2d] transition-all text-xs font-mono font-bold tracking-[0.2em] uppercase relative pb-2 group cursor-pointer focus:outline-none">
+                    Resume
+                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#c85a2d] opacity-0 group-hover:opacity-100 transition-opacity"></span>
                 </button>
-                <a href="#skills" class="text-white/70 hover:text-white transition-all text-xs font-semibold tracking-[0.2em] uppercase relative pb-3 group">
+                <a href="#skills" class="text-[#0d1b2a]/75 hover:text-[#c85a2d] transition-all text-xs font-mono font-bold tracking-[0.2em] uppercase relative pb-2 group">
                     Skills
-                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#d4a373] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#c85a2d] opacity-0 group-hover:opacity-100 transition-opacity"></span>
                 </a>
-                <a href="#experience" class="text-white/70 hover:text-white transition-all text-xs font-semibold tracking-[0.2em] uppercase relative pb-3 group">
+                <a href="#experience" class="text-[#0d1b2a]/75 hover:text-[#c85a2d] transition-all text-xs font-mono font-bold tracking-[0.2em] uppercase relative pb-2 group">
                     Experience
-                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#d4a373] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#c85a2d] opacity-0 group-hover:opacity-100 transition-opacity"></span>
                 </a>
-                <a href="#education" class="text-white/70 hover:text-white transition-all text-xs font-semibold tracking-[0.2em] uppercase relative pb-3 group">
+                <a href="#education" class="text-[#0d1b2a]/75 hover:text-[#c85a2d] transition-all text-xs font-mono font-bold tracking-[0.2em] uppercase relative pb-2 group">
                     Education
-                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#d4a373] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#c85a2d] opacity-0 group-hover:opacity-100 transition-opacity"></span>
                 </a>
             </nav>
             
             <!-- Mobile Nav -->
-            <nav id="mobile-nav" class="hidden md:hidden absolute top-full left-0 w-full bg-transparent backdrop-blur-md flex flex-col items-center py-8 gap-8 border-b border-white/5">
-                <button onclick="document.getElementById('about-modal-new').classList.remove('hidden'); document.getElementById('about-modal-new').classList.add('flex'); document.getElementById('mobile-nav').classList.add('hidden')" class="text-white/70 hover:text-white transition-all text-sm font-semibold tracking-[0.2em] uppercase">About</button>
-                <a href="#skills" onclick="document.getElementById('mobile-nav').classList.add('hidden')" class="text-white/70 hover:text-white transition-all text-sm font-semibold tracking-[0.2em] uppercase">Skills</a>
-                <a href="#experience" onclick="document.getElementById('mobile-nav').classList.add('hidden')" class="text-white/70 hover:text-white transition-all text-sm font-semibold tracking-[0.2em] uppercase">Experience</a>
-                <a href="#education" onclick="document.getElementById('mobile-nav').classList.add('hidden')" class="text-white/70 hover:text-white transition-all text-sm font-semibold tracking-[0.2em] uppercase">Education</a>
+            <nav id="mobile-nav" class="hidden md:hidden absolute top-full left-0 w-full bg-[#faf6ee] shadow-xl flex flex-col items-center py-6 gap-6 border-b border-[#dfd5c4]">
+                <button type="button" onclick="document.getElementById('mobile-nav').classList.add('hidden'); openResumeModal()" class="text-[#0d1b2a] hover:text-[#c85a2d] font-mono text-xs font-bold tracking-[0.2em] uppercase cursor-pointer">Resume</button>
+                <a href="#skills" onclick="document.getElementById('mobile-nav').classList.add('hidden')" class="text-[#0d1b2a] hover:text-[#c85a2d] font-mono text-xs font-bold tracking-[0.2em] uppercase">Skills</a>
+                <a href="#experience" onclick="document.getElementById('mobile-nav').classList.add('hidden')" class="text-[#0d1b2a] hover:text-[#c85a2d] font-mono text-xs font-bold tracking-[0.2em] uppercase">Experience</a>
+                <a href="#education" onclick="document.getElementById('mobile-nav').classList.add('hidden')" class="text-[#0d1b2a] hover:text-[#c85a2d] font-mono text-xs font-bold tracking-[0.2em] uppercase">Education</a>
             </nav>
         </header>
 
-        <main class="flex-grow max-w-7xl mx-auto w-full px-6 md:px-10 py-20 overflow-hidden">
-            <!-- Profile Block -->
-            <div class="flex flex-col md:flex-row gap-16 md:gap-20 items-center md:items-start md:justify-between reveal max-w-6xl mx-auto mt-10 w-full font-mono">
+        <main class="flex-grow max-w-6xl mx-auto w-full px-4 sm:px-6 md:px-8 py-10 md:py-16">
+            
+            <!-- Boarding Pass / Ticket Hero (Matches Uploaded Theme) -->
+            <div class="ticket-card relative bg-[#faf6ee] rounded-3xl border-2 border-[#dfd5c4] shadow-xl overflow-hidden reveal">
                 
-                
-                <!-- Text Content -->
-                <div class="flex flex-col pt-10 w-full max-w-2xl">
-                    <h1 class="text-4xl md:text-5xl lg:text-[42px] xl:text-[50px] font-bold text-white mb-8 leading-[1.3] font-mono">
-                        Hi, I'm a <span class="text-[#8ab4f8]">Go developer</span> and<br class="hidden xl:block" />
-                        <span class="text-[#8ab4f8]">back-end engineer</span>
-                    </h1>
-                    
-                    <p class="text-white/60 font-mono text-[14px] md:text-[15px] leading-relaxed mb-12 max-w-2xl">
-                        I'm currently into Golang backend development, building RESTful applications with Postgres, Docker, Kubernetes, and exploring cloud infrastructure with AWS & Terraform.
-                    </p>
-                    
-                    <div class="mt-8 flex flex-wrap gap-4">
-                        <a href="mailto:madhusudhan.vellore@gmail.com" class="inline-flex items-center gap-3 text-white px-4 py-2 font-mono text-sm hover:text-[#8ab4f8] transition-colors border border-white/10 rounded-lg hover:border-[#8ab4f8]/50 bg-white/5">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                            <span>E-Mail</span>
-                        </a>
-                        
-                        <a href="https://www.linkedin.com/in/v-madhusudhan-b1b403350" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 text-white px-4 py-2 font-mono text-sm hover:text-[#8ab4f8] transition-colors border border-white/10 rounded-lg hover:border-[#8ab4f8]/50 bg-white/5">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                            <span>LinkedIn</span>
-                        </a>
+                <!-- Ticket Top Perforation Notch (Left & Right) -->
+                <div class="absolute -top-4 left-[64%] hidden lg:block w-8 h-8 rounded-full bg-[#f5f0e6] border-b-2 border-[#dfd5c4] z-20"></div>
+                <div class="absolute -bottom-4 left-[64%] hidden lg:block w-8 h-8 rounded-full bg-[#f5f0e6] border-t-2 border-[#dfd5c4] z-20"></div>
 
-                        <a href="https://github.com/MadhusudhanVellore" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 text-white px-4 py-2 font-mono text-sm hover:text-[#8ab4f8] transition-colors border border-white/10 rounded-lg hover:border-[#8ab4f8]/50 bg-white/5">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                            <span>GitHub</span>
-                        </a>
+                <div class="flex flex-col lg:flex-row">
+                    
+                    <!-- Left Main Ticket Section -->
+                    <div class="flex-1 p-6 sm:p-10 md:p-12 lg:pr-12">
+                        
+                        <!-- Top Subhead & Badge -->
+                        <div class="flex items-center justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-2">
+                                <span class="font-mono font-extrabold text-xs tracking-widest text-[#c85a2d] uppercase">MADHU</span>
+                                <span class="text-[#0d1b2a]/40 font-bold">×</span>
+                                <span class="font-mono font-bold text-xs tracking-widest text-[#0d1b2a] uppercase">LINUX ADMIN</span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-[#c85a2d]/10 text-[#c85a2d] border border-[#c85a2d]/25 uppercase tracking-wider">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c85a2d] animate-pulse"></span>
+                                PASS 2026
+                            </span>
+                        </div>
+
+                        <!-- Big Headline -->
+                        <h1 class="text-5xl sm:text-6xl md:text-7xl font-black text-[#0d1b2a] tracking-tight uppercase leading-[0.95] mb-2 font-display">
+                            LINUX<br/>
+                            SYSTEMS<br/>
+                            ADMIN
+                        </h1>
+                        <div class="text-[#c85a2d] text-xl sm:text-2xl md:text-3xl font-black tracking-wide uppercase mb-6 font-display">
+                            SYSTEMS, CLOUD & AUTOMATION
+                        </div>
+
+                        <p class="text-[#524c44] font-sans text-sm sm:text-base leading-relaxed mb-8 max-w-xl">
+                            Administering enterprise Linux environments, automating server configurations with Ansible and Terraform, managing cloud infrastructure on AWS, and maintaining mission-critical server reliability.
+                        </p>
+
+                        <!-- Stamp Badge & Signature -->
+                        <div class="flex flex-wrap items-center gap-6 pt-2 border-t border-[#dfd5c4]/60">
+                            <!-- Sunburst Seal Icon -->
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-full border-2 border-dashed border-[#c85a2d] flex items-center justify-center p-1 bg-[#fbeee7] shrink-0">
+                                    <svg viewBox="0 0 40 40" class="w-full h-full text-[#c85a2d]" fill="none" stroke="currentColor" stroke-width="1.8">
+                                        <circle cx="20" cy="20" r="14" stroke-dasharray="3,3"/>
+                                        <circle cx="20" cy="20" r="7"/>
+                                        <path d="M20 4v4M20 32v4M4 20h4M32 20h4M8.7 8.7l2.8 2.8M28.5 28.5l2.8 2.8M8.7 31.3l2.8-2.8M28.5 11.5l2.8-2.8"/>
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="font-mono text-[11px] font-bold tracking-widest text-[#c85a2d] uppercase">BOARDING PASS</span>
+                                    <span class="text-xs font-semibold text-[#0d1b2a]">Vellore Madhusudhan</span>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="hidden md:flex flex-wrap gap-2.5">
+                                <button type="button" onclick="openResumeModal()" class="inline-flex items-center gap-2 px-3.5 py-2 font-mono text-xs font-bold text-[#c85a2d] bg-[#fbeee7] border border-[#c85a2d]/40 rounded-xl hover:bg-[#c85a2d] hover:text-white transition-all shadow-sm cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                    <span>Resume</span>
+                                </button>
+                                <a href="mailto:madhusudhan.vellore@gmail.com" class="inline-flex items-center gap-2 px-3.5 py-2 font-mono text-xs font-bold text-[#0d1b2a] bg-white border border-[#dfd5c4] rounded-xl hover:bg-[#c85a2d] hover:text-white hover:border-[#c85a2d] transition-all shadow-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                    <span>Email</span>
+                                </a>
+                                <a href="https://www.linkedin.com/in/v-madhusudhan-b1b403350" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 font-mono text-xs font-bold text-[#0d1b2a] bg-white border border-[#dfd5c4] rounded-xl hover:bg-[#c85a2d] hover:text-white hover:border-[#c85a2d] transition-all shadow-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://github.com/MadhusudhanVellore" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 font-mono text-xs font-bold text-[#0d1b2a] bg-white border border-[#dfd5c4] rounded-xl hover:bg-[#c85a2d] hover:text-white hover:border-[#c85a2d] transition-all shadow-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Ticket Stub (Flight Route / Modules) -->
+                    <div class="lg:w-[36%] border-t-2 lg:border-t-0 lg:border-l-2 border-dashed border-[#dfd5c4] bg-[#f7f1e6] p-6 sm:p-10 flex flex-col justify-between relative">
+                        
+                        <!-- Header of Right Stub -->
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="font-mono text-[11px] font-bold tracking-widest text-[#c85a2d] uppercase">FLIGHT ITINERARY</span>
+                                <span class="font-mono text-[11px] text-[#0d1b2a]/50 uppercase font-semibold">CLASS: SYSTEMS</span>
+                            </div>
+
+                            <!-- Modules / Flight Route Timeline -->
+                            <div class="space-y-4 relative">
+                                
+                                <!-- Module 01 -->
+                                <div class="bg-white/80 p-3.5 rounded-xl border border-[#dfd5c4] shadow-sm">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="font-mono text-[11px] font-bold text-[#c85a2d] uppercase">MODULE 01 — Linux Administration</span>
+                                        <span class="text-[10px] font-mono bg-[#c85a2d]/10 text-[#c85a2d] px-2 py-0.5 rounded font-bold">SYS</span>
+                                    </div>
+                                    <div class="text-xs font-bold text-[#0d1b2a]">RHEL / Ubuntu • Bash • Systemd</div>
+                                    <div class="text-[11px] text-[#524c44] mt-0.5">Kernel tuning, security hardening, user access & storage</div>
+                                </div>
+
+                                <!-- Flight Path 1 -->
+                                <div class="flex items-center justify-center gap-2 py-1 text-[#c85a2d]">
+                                    <span class="w-12 border-b-2 border-dashed border-[#c85a2d]/40"></span>
+                                    <svg class="w-4 h-4 transform rotate-90 text-[#c85a2d]" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                                    </svg>
+                                    <span class="w-12 border-b-2 border-dashed border-[#c85a2d]/40"></span>
+                                </div>
+
+                                <!-- Module 02 -->
+                                <div class="bg-white/80 p-3.5 rounded-xl border border-[#dfd5c4] shadow-sm">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="font-mono text-[11px] font-bold text-[#c85a2d] uppercase">MODULE 02 — Cloud & IaC Automation</span>
+                                        <span class="text-[10px] font-mono bg-[#c85a2d]/10 text-[#c85a2d] px-2 py-0.5 rounded font-bold">OPS</span>
+                                    </div>
+                                    <div class="text-xs font-bold text-[#0d1b2a]">AWS • Terraform • Ansible • Docker</div>
+                                    <div class="text-[11px] text-[#524c44] mt-0.5">Automated provisioning, config management, container runtime</div>
+                                </div>
+
+                                <!-- Flight Path 2 -->
+                                <div class="flex items-center justify-center gap-2 py-1 text-[#c85a2d]">
+                                    <span class="w-12 border-b-2 border-dashed border-[#c85a2d]/40"></span>
+                                    <svg class="w-4 h-4 transform rotate-90 text-[#c85a2d]" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                                    </svg>
+                                    <span class="w-12 border-b-2 border-dashed border-[#c85a2d]/40"></span>
+                                </div>
+
+                                <!-- Module 03 -->
+                                <div class="bg-white/80 p-3.5 rounded-xl border border-[#dfd5c4] shadow-sm">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="font-mono text-[11px] font-bold text-[#c85a2d] uppercase">MODULE 03 — Diagnostics & Telemetry</span>
+                                        <span class="text-[10px] font-mono bg-[#c85a2d]/10 text-[#c85a2d] px-2 py-0.5 rounded font-bold">NET</span>
+                                    </div>
+                                    <div class="text-xs font-bold text-[#0d1b2a]">Wireshark • Python Scripting • Networking • RCA</div>
+                                    <div class="text-[11px] text-[#524c44] mt-0.5">Packet inspection, log triage, root cause analysis</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Certified Stamp at Bottom of Stub -->
+                        <div class="mt-6 pt-4 border-t border-[#dfd5c4] flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full border-2 border-[#c85a2d] flex items-center justify-center bg-[#faf6ee] text-[#c85a2d] font-mono text-[10px] font-bold text-center leading-none">
+                                    OK<br/>2026
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="font-mono text-[10px] font-bold uppercase text-[#0d1b2a]">VERIFIED CANDIDATE</span>
+                                    <span class="text-[11px] text-[#524c44]">Ready for immediate impact</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Bottom Orange Ticket Barcode Strip (Exact match to image) -->
+                <div class="bg-[#c85a2d] text-white px-6 sm:px-10 py-3 flex flex-col sm:flex-row items-center justify-between gap-4 border-t-2 border-[#b04b20]">
+                    <div class="flex items-center gap-3">
+                        <div class="barcode-pattern h-7 w-36 rounded bg-white/10 px-1"></div>
+                        <span class="font-mono text-xs tracking-widest uppercase font-bold">PASS NO. VM-7289-2026</span>
+                    </div>
+                    <div class="font-mono text-[11px] tracking-wider uppercase font-semibold text-white/90 text-center sm:text-right">
+                        CERTIFIED LINUX ADMINISTRATOR
                     </div>
                 </div>
-                <div class="w-full flex-1 max-w-[450px] lg:max-w-[550px] flex items-center justify-center shrink-0 relative lg:translate-x-12 scale-110 lg:scale-125 z-0">
-<svg viewBox="0 0 500 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="w-full">
-  <defs>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="15" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-  </defs>
-<polygon points="110.00,50.00 161.96,80.00 161.96,140.00 110.00,170.00 58.04,140.00 58.04,80.00" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.2" stroke-dasharray="4,4" />
-<polygon points="120.00,180.00 163.30,205.00 163.30,255.00 120.00,280.00 76.70,255.00 76.70,205.00" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.3" />
-<polygon points="10.00,155.00 57.63,182.50 57.63,237.50 10.00,265.00 -37.63,237.50 -37.63,182.50" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.1" />
-<polygon points="220.00,225.00 276.29,257.50 276.29,322.50 220.00,355.00 163.71,322.50 163.71,257.50" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.15" stroke-dasharray="3,3" />
-<polygon points="390.00,135.00 446.29,167.50 446.29,232.50 390.00,265.00 333.71,232.50 333.71,167.50" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.2" />
-<polygon points="440.00,40.00 483.30,65.00 483.30,115.00 440.00,140.00 396.70,115.00 396.70,65.00" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="2" stroke-opacity="0.7" />
-<polygon points="520.00,85.00 584.95,122.50 584.95,197.50 520.00,235.00 455.05,197.50 455.05,122.50" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.1" />
-<path d="M 185 187 L 163 205" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3" />
-<path d="M 76 205 L 57 237" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3" />
-<path d="M 314 187 L 333 167" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3" />
-<path d="M 185 112 L 161 140" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3" />
-<path d="M 314 112 L 396 115" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3" />
-<g filter="url(#glow)">
-<polygon points="250.00,150.00 206.70,125.00 250.00,100.00 293.30,125.00" stroke-linejoin="round" fill="#8A4FFE" />
-<polygon points="250.00,150.00 250.00,200.00 206.70,175.00 206.70,125.00" stroke-linejoin="round" fill="#6028d7" />
-<polygon points="250.00,150.00 293.30,125.00 293.30,175.00 250.00,200.00" stroke-linejoin="round" fill="#6624df" />
-</g>
-<polygon points="250.00,75.00 314.95,112.50 314.95,187.50 250.00,225.00 185.05,187.50 185.05,112.50" stroke-linejoin="round" fill="none" stroke="#ffffff" stroke-width="2" stroke-opacity="1" /><line x1="250.00" y1="75.00" x2="250.00" y2="100.00" stroke="#ffffff" stroke-width="2" stroke-opacity="1" />
-<line x1="314.95" y1="112.50" x2="293.30" y2="125.00" stroke="#ffffff" stroke-width="2" stroke-opacity="1" />
-<line x1="314.95" y1="187.50" x2="293.30" y2="175.00" stroke="#ffffff" stroke-width="2" stroke-opacity="1" />
-<line x1="250.00" y1="225.00" x2="250.00" y2="200.00" stroke="#ffffff" stroke-width="2" stroke-opacity="1" />
-<line x1="185.05" y1="187.50" x2="206.70" y2="175.00" stroke="#ffffff" stroke-width="2" stroke-opacity="1" />
-<line x1="185.05" y1="112.50" x2="206.70" y2="125.00" stroke="#ffffff" stroke-width="2" stroke-opacity="1" />
-</svg>
-                </div>
 
             </div>
 
-            </div>
-
-            <!-- Full Skills Grid -->
-            <section id="skills" class="mt-40">
-                <div class="flex flex-col items-center mb-16">
-                    <span class="bg-[#1f1f2e] text-white/80 px-4 py-1.5 rounded-full text-sm font-semibold mb-6">Skills</span>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white text-center">The skills, tools and technologies I am really good at:</h2>
+            <!-- Full Skills Grid (Ticket Passport Stamps) -->
+            <section id="skills" class="mt-28 md:mt-36">
+                <div class="flex flex-col items-center mb-12">
+                    <span class="inline-flex items-center gap-2 bg-[#fbeee7] text-[#c85a2d] border border-[#c85a2d]/30 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-widest uppercase mb-4 shadow-sm">
+                        AIRLINE STAMPS • SYSADMIN TOOLSET
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-black text-[#0d1b2a] text-center uppercase tracking-tight font-display">
+                        Skills, Tools & Technologies
+                    </h2>
+                    <p class="text-[#524c44] text-center text-sm md:text-base mt-2 max-w-xl">
+                        Production-tested Linux systems, enterprise automation, cloud infrastructure, and network troubleshooting tools.
+                    </p>
                 </div>
     
-                <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-y-12 gap-x-8 max-w-5xl mx-auto items-end justify-items-center">
-
-                    <!-- Go -->
-                    <div class="flex flex-col items-center justify-center reveal" style="transition-delay: 0ms;">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" class="w-14 h-14 md:w-16 md:h-16 object-contain mb-3" alt="Go" />
-                        <span class="text-white/80 font-bold text-sm md:text-base">Go</span>
-                    </div>
-
-                    <!-- Docker -->
-                    <div class="flex flex-col items-center justify-center reveal" style="transition-delay: 100ms;">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" class="w-14 h-14 md:w-16 md:h-16 object-contain mb-3" alt="Docker" />
-                        <span class="text-white/80 font-bold text-sm md:text-base">Docker</span>
-                    </div>
-
-                    <!-- Kubernetes -->
-                    <div class="flex flex-col items-center justify-center reveal" style="transition-delay: 200ms;">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" class="w-14 h-14 md:w-16 md:h-16 object-contain mb-3" alt="Kubernetes" />
-                        <span class="text-white/80 font-bold text-sm md:text-base">Kubernetes</span>
-                    </div>
-
-                    <!-- Kafka -->
-                    <div class="flex flex-col items-center justify-center reveal" style="transition-delay: 0ms;">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg" class="w-14 h-14 md:w-16 md:h-16 object-contain mb-3 brightness-0 invert" alt="Kafka" />
-                        <span class="text-white/80 font-bold text-sm md:text-base">Kafka</span>
-                    </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-5 max-w-5xl mx-auto">
 
                     <!-- Linux -->
-                    <div class="flex flex-col items-center justify-center reveal" style="transition-delay: 100ms;">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" class="w-14 h-14 md:w-16 md:h-16 object-contain mb-3" alt="Linux" />
-                        <span class="text-white/80 font-bold text-sm md:text-base">Linux</span>
-                    </div>
-
-                    <!-- gRPC -->
-                    <div class="flex flex-col items-center justify-center reveal" style="transition-delay: 200ms;">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grpc/grpc-original.svg" class="w-14 h-14 md:w-16 md:h-16 object-contain mb-3" alt="gRPC" />
-                        <span class="text-white/80 font-bold text-sm md:text-base">gRPC</span>
+                    <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-5 flex flex-col items-center justify-center hover:border-[#c85a2d] hover:-translate-y-1 transition-all shadow-sm reveal group">
+                        <div class="w-14 h-14 flex items-center justify-center mb-3">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform" alt="Linux" />
+                        </div>
+                        <span class="text-[#0d1b2a] font-bold text-sm text-center">Linux</span>
+                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Systems</span>
                     </div>
 
                     <!-- Bash -->
-                    <div class="flex flex-col items-center justify-center reveal" style="transition-delay: 0ms;">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" class="w-14 h-14 md:w-16 md:h-16 object-contain mb-3 brightness-0 invert" alt="Bash" />
-                        <span class="text-white/80 font-bold text-sm md:text-base">Bash</span>
+                    <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-5 flex flex-col items-center justify-center hover:border-[#c85a2d] hover:-translate-y-1 transition-all shadow-sm reveal group">
+                        <div class="w-14 h-14 flex items-center justify-center mb-3">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform" alt="Bash" />
+                        </div>
+                        <span class="text-[#0d1b2a] font-bold text-sm text-center">Bash</span>
+                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Shell Scripting</span>
+                    </div>
+
+                    <!-- Ansible -->
+                    <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-5 flex flex-col items-center justify-center hover:border-[#c85a2d] hover:-translate-y-1 transition-all shadow-sm reveal group">
+                        <div class="w-14 h-14 flex items-center justify-center mb-3">
+                            <img src="ansible.svg" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg'" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform" alt="Ansible" />
+                        </div>
+                        <span class="text-[#0d1b2a] font-bold text-sm text-center">Ansible</span>
+                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Automation</span>
+                    </div>
+
+                    <!-- AWS -->
+                    <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-5 flex flex-col items-center justify-center hover:border-[#c85a2d] hover:-translate-y-1 transition-all shadow-sm reveal group">
+                        <div class="w-14 h-14 flex items-center justify-center mb-3">
+                            <img src="aws.svg" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg'" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform" alt="AWS" />
+                        </div>
+                        <span class="text-[#0d1b2a] font-bold text-sm text-center">AWS</span>
+                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Cloud Infra</span>
+                    </div>
+
+                    <!-- Terraform -->
+                    <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-5 flex flex-col items-center justify-center hover:border-[#c85a2d] hover:-translate-y-1 transition-all shadow-sm reveal group">
+                        <div class="w-14 h-14 flex items-center justify-center mb-3">
+                            <img src="terraform.svg" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg'" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform" alt="Terraform" />
+                        </div>
+                        <span class="text-[#0d1b2a] font-bold text-sm text-center">Terraform</span>
+                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">IaC</span>
+                    </div>
+
+                    <!-- Wireshark -->
+                    <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-5 flex flex-col items-center justify-center hover:border-[#c85a2d] hover:-translate-y-1 transition-all shadow-sm reveal group">
+                        <div class="w-14 h-14 flex items-center justify-center mb-3">
+                            <img src="wireshark.svg" onerror="this.src='https://cdn.simpleicons.org/wireshark/1679A7'" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform" alt="Wireshark" />
+                        </div>
+                        <span class="text-[#0d1b2a] font-bold text-sm text-center">Wireshark</span>
+                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Packets</span>
+                    </div>
+
+                    <!-- Python Scripting -->
+                    <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-5 flex flex-col items-center justify-center hover:border-[#c85a2d] hover:-translate-y-1 transition-all shadow-sm reveal group">
+                        <div class="w-14 h-14 flex items-center justify-center mb-3">
+                            <img src="python.svg" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg'" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform" alt="Python Scripting" />
+                        </div>
+                        <span class="text-[#0d1b2a] font-bold text-sm text-center">Python Scripting</span>
+                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Scripting</span>
+                    </div>
+
+                    <!-- Docker -->
+                    <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-5 flex flex-col items-center justify-center hover:border-[#c85a2d] hover:-translate-y-1 transition-all shadow-sm reveal group">
+                        <div class="w-14 h-14 flex items-center justify-center mb-3">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform" alt="Docker" />
+                        </div>
+                        <span class="text-[#0d1b2a] font-bold text-sm text-center">Docker</span>
+                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Containers</span>
+                    </div>
+
+                    <!-- Kubernetes -->
+                    <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-5 flex flex-col items-center justify-center hover:border-[#c85a2d] hover:-translate-y-1 transition-all shadow-sm reveal group">
+                        <div class="w-14 h-14 flex items-center justify-center mb-3">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform" alt="Kubernetes" />
+                        </div>
+                        <span class="text-[#0d1b2a] font-bold text-sm text-center">Kubernetes</span>
+                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Orchestration</span>
+                    </div>
+
+                    <!-- Go -->
+                    <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-5 flex flex-col items-center justify-center hover:border-[#c85a2d] hover:-translate-y-1 transition-all shadow-sm reveal group">
+                        <div class="w-14 h-14 flex items-center justify-center mb-3">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform" alt="Go" />
+                        </div>
+                        <span class="text-[#0d1b2a] font-bold text-sm text-center">Go</span>
+                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">CLI & Tools</span>
+                    </div>
+
+                    <!-- Git & GitHub -->
+                    <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-5 flex flex-col items-center justify-center hover:border-[#c85a2d] hover:-translate-y-1 transition-all shadow-sm reveal group sm:col-span-2 md:col-span-2">
+                        <div class="flex items-center justify-center gap-3 mb-3 h-14">
+                            <img src="git.svg" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg'" class="w-9 h-9 object-contain group-hover:scale-110 transition-transform" alt="Git" />
+                            <img src="github.svg" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg'" class="w-9 h-9 object-contain group-hover:scale-110 transition-transform" alt="GitHub" />
+                        </div>
+                        <span class="text-[#0d1b2a] font-bold text-sm text-center">Git & GitHub</span>
+                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Version Control</span>
                     </div>
                 </div>
             </section>
 
-            <!-- Experience Section -->
-            <section id="experience" class="mt-40">
-                <div class="mb-12">
-                    <h2 class="text-4xl font-bold mb-4 tracking-tight">Experience</h2>
-                    <div class="accent-line mb-10"></div>
+            <!-- Experience Section (Boarding Pass Voucher) -->
+            <section id="experience" class="mt-28 md:mt-36">
+                <div class="mb-10">
+                    <span class="font-mono text-xs font-bold text-[#c85a2d] tracking-widest uppercase">DEPLOYMENT HISTORY</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-[#0d1b2a] uppercase tracking-tight font-display mt-1">Experience</h2>
+                    <div class="w-20 h-1 bg-[#c85a2d] mt-3"></div>
                 </div>
                 
-                <div class="bg-[#121212] border border-white/5 rounded-2xl p-10 card-hover reveal">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
+                <div class="ticket-card bg-[#faf6ee] border-2 border-[#dfd5c4] rounded-3xl p-6 sm:p-10 shadow-lg reveal relative overflow-hidden">
+                    
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-6 pb-6 border-b border-[#dfd5c4]">
                         <div>
-                            <h3 class="text-2xl font-bold text-[#8ab4f8] mb-2 uppercase tracking-tight">Graduate Engineer, Operations</h3>
-                            <p class="text-xl font-medium text-white/80 mb-6">Mavenir Systems Private Limited | IN-Bangalore-MFAR-8</p>
-                            
-                            <div class="space-y-4">
-                                <h4 class="text-sm font-bold text-white uppercase tracking-[0.2em] mb-4">Roles & Responsibilities</h4>
-                                <ul class="space-y-3 text-white/60 text-lg leading-relaxed">
-                                    <li class="flex gap-3">
-                                        <span class="text-[#8ab4f8] font-bold">01</span>
-                                        <span>Provided support and maintenance for VMAS, ensuring high availability and smooth operations.</span>
-                                    </li>
-                                    <li class="flex gap-3">
-                                        <span class="text-[#8ab4f8] font-bold">02</span>
-                                        <span>Troubleshot and resolved technical issues via tickets, performing root cause analysis to prevent recurrence.</span>
-                                    </li>
-                                    <li class="flex gap-3">
-                                        <span class="text-[#8ab4f8] font-bold">03</span>
-                                        <span>Monitored system performance and KPIs, proactively identifying and fixing issues.</span>
-                                    </li>
-                                    <li class="flex gap-3">
-                                        <span class="text-[#8ab4f8] font-bold">04</span>
-                                        <span>Collaborated with development teams to report bugs, test new features, and support product improvements.</span>
-                                    </li>
-                                    <li class="flex gap-3">
-                                        <span class="text-[#8ab4f8] font-bold">05</span>
-                                        <span>Maintained documentation, change records, and communicated updates to customers and internal teams.</span>
-                                    </li>
-                                </ul>
+                            <div class="inline-block px-3 py-1 bg-[#c85a2d]/10 text-[#c85a2d] font-mono text-xs font-bold rounded-lg uppercase tracking-wider mb-3 border border-[#c85a2d]/25">
+                                VOUCHER REF: MVN-OPS-2024
                             </div>
+                            <h3 class="text-2xl sm:text-3xl font-black text-[#0d1b2a] uppercase tracking-tight">Graduate Engineer, Operations</h3>
+                            <p class="text-base sm:text-lg font-semibold text-[#524c44] mt-1">Mavenir Systems Private Limited | IN-Bangalore-MFAR-8</p>
                         </div>
-                        <div class="text-[#8ab4f8] font-mono text-sm uppercase tracking-widest bg-white/5 px-6 py-3 rounded-full border border-white/5 whitespace-nowrap">
+                        <div class="text-[#c85a2d] font-mono text-xs sm:text-sm font-bold uppercase tracking-widest bg-[#fbeee7] px-5 py-2.5 rounded-full border border-[#c85a2d]/30 whitespace-nowrap self-start">
                             August 2024 – February 2025
                         </div>
                     </div>
+
+                    <div class="mt-8">
+                        <h4 class="text-xs font-mono font-bold text-[#c85a2d] uppercase tracking-[0.2em] mb-6">Key Directives & Accomplishments</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4 p-4 rounded-xl bg-white/70 border border-[#dfd5c4]">
+                                <span class="font-mono text-sm font-bold text-[#c85a2d] px-2 py-0.5 rounded bg-[#c85a2d]/10 shrink-0">01</span>
+                                <span class="text-[#0d1b2a] text-sm sm:text-base leading-relaxed">Provided tier operations support and routine maintenance for VMAS, ensuring uninterrupted high availability and system stability.</span>
+                            </div>
+                            <div class="flex items-start gap-4 p-4 rounded-xl bg-white/70 border border-[#dfd5c4]">
+                                <span class="font-mono text-sm font-bold text-[#c85a2d] px-2 py-0.5 rounded bg-[#c85a2d]/10 shrink-0">02</span>
+                                <span class="text-[#0d1b2a] text-sm sm:text-base leading-relaxed">Investigated and resolved technical issues via ticketing pipelines, conducting root cause analysis (RCA) to permanently mitigate recurrent failures.</span>
+                            </div>
+                            <div class="flex items-start gap-4 p-4 rounded-xl bg-white/70 border border-[#dfd5c4]">
+                                <span class="font-mono text-sm font-bold text-[#c85a2d] px-2 py-0.5 rounded bg-[#c85a2d]/10 shrink-0">03</span>
+                                <span class="text-[#0d1b2a] text-sm sm:text-base leading-relaxed">Tracked operational KPIs and telemetry alerts across distributed services, proactively resolving bottlenecks before customer degradation occurred.</span>
+                            </div>
+                            <div class="flex items-start gap-4 p-4 rounded-xl bg-white/70 border border-[#dfd5c4]">
+                                <span class="font-mono text-sm font-bold text-[#c85a2d] px-2 py-0.5 rounded bg-[#c85a2d]/10 shrink-0">04</span>
+                                <span class="text-[#0d1b2a] text-sm sm:text-base leading-relaxed">Collaborated directly with engineering teams to triage bugs, validate staging builds, and ensure reliable rollouts of software updates.</span>
+                            </div>
+                            <div class="flex items-start gap-4 p-4 rounded-xl bg-white/70 border border-[#dfd5c4]">
+                                <span class="font-mono text-sm font-bold text-[#c85a2d] px-2 py-0.5 rounded bg-[#c85a2d]/10 shrink-0">05</span>
+                                <span class="text-[#0d1b2a] text-sm sm:text-base leading-relaxed">Authored operational runbooks, managed change records, and delivered clear status communications to stakeholders and cross-functional teams.</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <!-- Education Section -->
-            <section id="education" class="mt-40">
-                <div class="mb-12">
-                    <h2 class="text-4xl font-bold mb-4 tracking-tight text-white uppercase">Education</h2>
-                    <div class="accent-line mb-10"></div>
+            <!-- Education Section (Flight Route Timeline) -->
+            <section id="education" class="mt-28 md:mt-36">
+                <div class="mb-10">
+                    <span class="font-mono text-xs font-bold text-[#c85a2d] tracking-widest uppercase">ACADEMIC JOURNEY</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-[#0d1b2a] uppercase tracking-tight font-display mt-1">Education</h2>
+                    <div class="w-20 h-1 bg-[#c85a2d] mt-3"></div>
                 </div>
 
-                <div class="relative border-l border-white/10 ml-4 space-y-12 pb-10">
+                <div class="relative border-l-2 border-dashed border-[#dfd5c4] ml-4 space-y-10 pb-6">
+                    
                     <!-- Education Item 1 -->
-                    <div class="relative pl-12 reveal">
-                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#8ab4f8] shadow-[0_0_15px_rgba(138,180,248,0.5)]"></div>
-                        <div class="bg-[#121212] border border-white/5 rounded-2xl p-8 card-hover max-w-2xl">
-                            <span class="text-[#8ab4f8] font-mono text-sm font-bold uppercase tracking-widest mb-2 block">2018 – 2022</span>
-                            <h3 class="text-xl font-bold mb-2 uppercase tracking-tight">Bachelor of Technology in Computer Science</h3>
-                            <p class="text-white/60 leading-relaxed">Siddharth Institute of Engineering and Technology - Puttur,</p>
+                    <div class="relative pl-8 sm:pl-10 reveal">
+                        <div class="absolute -left-[9px] top-4 w-4 h-4 rounded-full bg-[#c85a2d] ring-4 ring-[#f5f0e6]"></div>
+                        <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-6 sm:p-8 max-w-2xl shadow-sm hover:border-[#c85a2d] transition-all">
+                            <span class="text-[#c85a2d] font-mono text-xs font-bold uppercase tracking-widest mb-1.5 block">2018 – 2022</span>
+                            <h3 class="text-xl font-bold text-[#0d1b2a] uppercase tracking-tight">Bachelor of Technology in Computer Science</h3>
+                            <p class="text-[#524c44] text-sm sm:text-base leading-relaxed mt-1">Siddharth Institute of Engineering and Technology - Puttur, AP</p>
                         </div>
                     </div>
 
                     <!-- Education Item 2 -->
-                    <div class="relative pl-12 reveal">
-                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#8ab4f8] shadow-[0_0_15px_rgba(138,180,248,0.5)]"></div>
-                        <div class="bg-[#121212] border border-white/5 rounded-2xl p-8 card-hover max-w-2xl">
-                            <span class="text-[#8ab4f8] font-mono text-sm font-bold uppercase tracking-widest mb-2 block">2015 - 2018</span>
-                            <h3 class="text-xl font-bold mb-2 uppercase tracking-tight">Board Of Secondary & Intermediate Education</h3>
-                            <p class="text-white/60 leading-relaxed">Sai Sri Chaithanya Junior College - palamaner.</p>
+                    <div class="relative pl-8 sm:pl-10 reveal">
+                        <div class="absolute -left-[9px] top-4 w-4 h-4 rounded-full bg-[#c85a2d] ring-4 ring-[#f5f0e6]"></div>
+                        <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-6 sm:p-8 max-w-2xl shadow-sm hover:border-[#c85a2d] transition-all">
+                            <span class="text-[#c85a2d] font-mono text-xs font-bold uppercase tracking-widest mb-1.5 block">2015 – 2018</span>
+                            <h3 class="text-xl font-bold text-[#0d1b2a] uppercase tracking-tight">Board Of Secondary & Intermediate Education</h3>
+                            <p class="text-[#524c44] text-sm sm:text-base leading-relaxed mt-1">Sai Sri Chaithanya Junior College - Palamaner, AP</p>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
 
-        <footer class="py-10 px-10 border-t border-white/5 text-center text-white/20 text-xs uppercase tracking-[0.3em]">
-            © <span id="year"></span> Madhusudhan • Back-end Developer Portfolio
+        <!-- Footer (Ticket Barcode Stub) -->
+        <footer class="py-12 px-6 border-t-2 border-dashed border-[#dfd5c4] bg-[#f0e8dc]/60 text-center">
+            <div class="max-w-4xl mx-auto flex flex-col items-center justify-center gap-4">
+                <div class="barcode-pattern h-8 w-44 rounded bg-[#0d1b2a]/10"></div>
+                <div class="text-[#0d1b2a]/70 font-mono text-xs uppercase tracking-[0.25em] font-semibold">
+                    © <span id="year"></span> Vellore Madhusudhan • Boarding Pass Theme • All Systems Operational
+                </div>
+            </div>
         </footer>
     </div>
 
-    
-        <!-- Floating Home Button -->
-        <a href="#" class="fixed bottom-8 right-8 z-[90] bg-[#1a1a1a]/80 backdrop-blur-md border border-white/10 text-white p-3 rounded-full shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:bg-[#8ab4f8] hover:text-black hover:border-[#8ab4f8] transition-all group scale-up-anim flex items-center justify-center group" style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease;" id="scroll-to-top">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-            </svg>
-        </a>
+    <!-- Floating Home Button -->
+    <a href="#" class="fixed bottom-8 right-8 z-[90] bg-[#faf6ee] border-2 border-[#dfd5c4] text-[#0d1b2a] p-3 rounded-full shadow-lg hover:bg-[#2563eb] hover:text-white hover:border-[#2563eb] transition-all duration-200 group flex items-center justify-center cursor-pointer" style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;" id="scroll-to-top" title="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </a>
 
-        <script>
-            window.addEventListener('scroll', function() {
-                const btn = document.getElementById('scroll-to-top');
-                if (window.scrollY > 300) {
-                    btn.style.opacity = '1';
-                    btn.style.pointerEvents = 'auto';
-                } else {
-                    btn.style.opacity = '0';
-                    btn.style.pointerEvents = 'none';
-                }
-            });
-        </script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('scroll-to-top');
+            if (window.scrollY > 300) {
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+            } else {
+                btn.style.opacity = '0';
+                btn.style.pointerEvents = 'none';
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
