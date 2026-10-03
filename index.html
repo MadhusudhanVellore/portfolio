@@ -123,7 +123,7 @@
 
                     <!-- Profile Summary -->
                     <div class="text-xs sm:text-sm text-gray-800 leading-relaxed mb-6">
-                        Linux Administrator with 7 months of hands-on experience in production support and operations, with strong knowledge of Linux administration, troubleshooting, and system debugging. Skilled in <strong>Bash</strong> and <strong>Python scripting</strong>, <strong>Ansible automation</strong>, <strong>Docker</strong>, <strong>Kubernetes</strong>, <strong>Nginx</strong>, and <strong>Git/GitHub</strong>. Experienced in supporting production environments, automating operational tasks, and resolving infrastructure issues efficiently. Seeking to leverage strong troubleshooting and automation skills in a Linux/System Administration role.
+                        Linux Administrator with 7 months of hands-on experience in production support and operations, with strong knowledge of Linux administration, troubleshooting, and system debugging. Skilled in <strong>GitHub Actions</strong>, <strong>Kubernetes &amp; Helm</strong>, <strong>Python scripting</strong>, <strong>Docker</strong>, <strong>Nginx</strong>, and <strong>Git/GitHub</strong>. Experienced in supporting production environments, automating operational tasks, and resolving infrastructure issues efficiently. Seeking to leverage strong troubleshooting and automation skills in a Linux/System Administration role.
                     </div>
 
                     <!-- Work Experience -->
@@ -155,12 +155,92 @@
                     <div>
                         <h3 class="text-sm sm:text-base font-bold text-[#111827] uppercase tracking-wide mb-1.5">RELEVANT SKILLS</h3>
                         <div class="text-xs text-gray-800 leading-relaxed space-y-1">
-                            <p>Linux Administration • Bash Scripting • Ansible Automation • Python scripting •</p>
-                            <p>Git &amp; Github • Docker &amp; Kubernetes • Nginx Webserver • Log Monitoring &amp; Analysis • Debugging &amp; Troubleshooting •</p>
+                            <p>Linux Administration • GitHub Actions (CI/CD) • Kubernetes + Helm • Python scripting •</p>
+                            <p>Git &amp; Github • Docker • Nginx Webserver • Log Monitoring &amp; Analysis • Debugging &amp; Troubleshooting •</p>
                             <p>Packet Analysis(Wireshark,Tshark) • AWS • Terraform(IaC)</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Interactive Terminal Modal (Webpage Ticket & Parchment Theme) -->
+        <div id="terminal-modal" class="fixed inset-0 z-[100] hidden bg-[#0d1b2a]/80 items-center justify-center backdrop-blur-md transition-all duration-300 p-2 sm:p-4 overflow-y-auto" onclick="closeTerminalModal()">
+            <div class="relative w-full max-w-3xl bg-[#faf6ee] text-[#0d1b2a] rounded-3xl shadow-2xl border-2 border-[#dfd5c4] scale-up-anim overflow-hidden flex flex-col font-mono my-auto transition-all" onclick="event.stopPropagation()">
+                
+                <!-- Terminal Window Header -->
+                <div class="bg-[#f4ece0] px-4 py-3.5 flex items-center justify-between border-b border-[#dfd5c4] select-none">
+                    <div class="flex items-center gap-2">
+                        <button onclick="closeTerminalModal()" class="w-3.5 h-3.5 rounded-full bg-[#c85a2d] hover:opacity-80 transition-opacity cursor-pointer border border-[#b04a20]" title="Close"></button>
+                        <button onclick="toggleTerminalFullscreen()" class="w-3.5 h-3.5 rounded-full bg-[#e9c46a] hover:opacity-80 transition-opacity cursor-pointer border border-[#d4ab4c]" title="Resize"></button>
+                        <button onclick="toggleTerminalFullscreen()" class="w-3.5 h-3.5 rounded-full bg-[#2a9d8f] hover:opacity-80 transition-opacity cursor-pointer border border-[#1f7a6f]" title="Maximize"></button>
+                        <span class="ml-3 text-xs text-[#0d1b2a] font-bold tracking-wide flex items-center gap-1.5">
+                            <span class="text-[#c85a2d]">●</span> madhu@sysadmin-flight-deck: ~ (bash)
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-[11px] text-[#c85a2d] bg-[#fbeee7] px-2 py-0.5 rounded border border-[#c85a2d]/30 font-bold uppercase tracking-wider hidden sm:inline-block">PASS CLI • 2026</span>
+                        <button onclick="closeTerminalModal()" class="text-[#0d1b2a]/60 hover:text-[#c85a2d] p-1.5 rounded-lg hover:bg-white/60 transition-colors cursor-pointer border border-[#dfd5c4] bg-[#faf6ee]" title="Close Terminal">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Command Quick Chips -->
+                <div class="bg-[#f8f3ea] px-3 sm:px-4 py-2.5 border-b border-[#dfd5c4] flex items-center gap-2 overflow-x-auto text-[11px] select-none">
+                    <span class="text-[#c85a2d] font-bold text-[10px] uppercase tracking-wider mr-1 shrink-0 font-mono">COMMANDS:</span>
+                    <button type="button" onclick="executeTerminalCommand('help')" class="px-2.5 py-1 bg-white hover:bg-[#c85a2d] hover:text-white text-[#0d1b2a] font-bold rounded-lg border border-[#dfd5c4] hover:border-[#c85a2d] transition-all cursor-pointer shrink-0 shadow-xs">help</button>
+                    <button type="button" onclick="executeTerminalCommand('skills')" class="px-2.5 py-1 bg-white hover:bg-[#c85a2d] hover:text-white text-[#c85a2d] font-bold rounded-lg border border-[#dfd5c4] hover:border-[#c85a2d] transition-all cursor-pointer shrink-0 shadow-xs">skills</button>
+                    <button type="button" onclick="executeTerminalCommand('who')" class="px-2.5 py-1 bg-white hover:bg-[#c85a2d] hover:text-white text-[#0d1b2a] font-bold rounded-lg border border-[#dfd5c4] hover:border-[#c85a2d] transition-all cursor-pointer shrink-0 shadow-xs">who</button>
+                    <button type="button" onclick="executeTerminalCommand('experience')" class="px-2.5 py-1 bg-white hover:bg-[#c85a2d] hover:text-white text-[#0d1b2a] font-bold rounded-lg border border-[#dfd5c4] hover:border-[#c85a2d] transition-all cursor-pointer shrink-0 shadow-xs">experience</button>
+                    <button type="button" onclick="executeTerminalCommand('education')" class="px-2.5 py-1 bg-white hover:bg-[#c85a2d] hover:text-white text-[#0d1b2a] font-bold rounded-lg border border-[#dfd5c4] hover:border-[#c85a2d] transition-all cursor-pointer shrink-0 shadow-xs">education</button>
+                    <button type="button" onclick="executeTerminalCommand('contact')" class="px-2.5 py-1 bg-white hover:bg-[#c85a2d] hover:text-white text-[#0d1b2a] font-bold rounded-lg border border-[#dfd5c4] hover:border-[#c85a2d] transition-all cursor-pointer shrink-0 shadow-xs">contact</button>
+                    <button type="button" onclick="executeTerminalCommand('clear')" class="px-2.5 py-1 bg-white hover:bg-gray-200 text-[#524c44] font-semibold rounded-lg border border-[#dfd5c4] transition-all cursor-pointer shrink-0 ml-auto shadow-xs">clear</button>
+                </div>
+
+                <!-- Terminal Output & Interactive Prompt Area -->
+                <div id="terminal-body" class="p-4 sm:p-5 h-[360px] sm:h-[420px] overflow-y-auto text-xs sm:text-sm font-mono leading-relaxed select-text cursor-text bg-[#faf6ee]" onclick="focusTerminalInput()">
+                    <div id="terminal-output" class="space-y-3">
+                        <!-- Welcome Header -->
+                        <div class="text-[#524c44] space-y-1 pb-3 border-b border-[#dfd5c4]">
+                            <div class="text-[#c85a2d] font-bold text-sm tracking-wide font-mono flex items-center gap-2">
+                                <span>✈</span> <span>MADHUSUDHAN VELLORE // LINUX SYSADMIN TERMINAL</span>
+                            </div>
+                            <div class="text-[#0d1b2a] text-xs font-sans font-medium">
+                                Linux Systems Administration • Cloud Infrastructure • Automation • CI/CD
+                            </div>
+                            <div class="text-[#524c44] text-[11px] pt-0.5 font-mono">
+                                Session: flight-deck-tty1 | Verified OK 2026
+                            </div>
+                            <div class="text-[#c85a2d] text-xs pt-1 font-mono font-semibold">
+                                ➜ Type <span class="text-[#0d1b2a] font-bold underline cursor-pointer hover:text-[#c85a2d]" onclick="executeTerminalCommand('help')">'help'</span>, <span class="text-[#0d1b2a] font-bold underline cursor-pointer hover:text-[#c85a2d]" onclick="executeTerminalCommand('skills')">'skills'</span>, or <span class="text-[#0d1b2a] font-bold underline cursor-pointer hover:text-[#c85a2d]" onclick="executeTerminalCommand('skills linux')">'skills linux'</span> for details.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Active Prompt Line -->
+                    <div class="flex items-center gap-2 mt-3 pt-2 text-xs sm:text-sm">
+                        <span class="text-[#c85a2d] font-bold shrink-0">madhu@sysadmin:~$</span>
+                        <div class="relative flex-grow flex items-center">
+                            <input type="text" id="terminal-input" class="w-full bg-transparent text-[#0d1b2a] focus:outline-none font-mono caret-[#c85a2d] font-semibold p-0 m-0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="type command (e.g. skills linux, who, help)..." />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terminal Bottom Status Bar -->
+                <div class="bg-[#f4ece0] px-4 py-2 border-t border-[#dfd5c4] flex items-center justify-between text-[11px] text-[#524c44] select-none font-mono">
+                    <div class="flex items-center gap-3">
+                        <span class="flex items-center gap-1.5 font-bold text-[#c85a2d]"><span class="w-2 h-2 rounded-full bg-[#c85a2d] animate-pulse"></span> ONLINE</span>
+                        <span class="hidden sm:inline text-[#dfd5c4]">|</span>
+                        <span class="hidden sm:inline">UTF-8</span>
+                        <span class="hidden sm:inline text-[#dfd5c4]">|</span>
+                        <span class="hidden sm:inline">bash 5.2</span>
+                    </div>
+                    <div class="text-[#524c44] text-[10px] sm:text-[11px]">
+                        <kbd class="px-1.5 py-0.5 bg-white rounded border border-[#dfd5c4] text-[#0d1b2a] font-bold shadow-2xs">Enter</kbd> run, <kbd class="px-1.5 py-0.5 bg-white rounded border border-[#dfd5c4] text-[#0d1b2a] font-bold shadow-2xs">Tab</kbd> complete, <kbd class="px-1.5 py-0.5 bg-white rounded border border-[#dfd5c4] text-[#0d1b2a] font-bold shadow-2xs">Esc</kbd> exit
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -191,6 +271,11 @@
                     Resume
                     <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#c85a2d] opacity-0 group-hover:opacity-100 transition-opacity"></span>
                 </button>
+                <button type="button" onclick="openTerminalModal()" class="text-[#0d1b2a]/75 hover:text-[#c85a2d] transition-all text-xs font-mono font-bold tracking-[0.2em] uppercase relative pb-2 group cursor-pointer focus:outline-none flex items-center gap-1.5">
+                    <span class="text-[#c85a2d] font-mono text-[12px] font-black">&gt;_</span>
+                    <span>Terminal</span>
+                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#c85a2d] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                </button>
                 <a href="#skills" class="text-[#0d1b2a]/75 hover:text-[#c85a2d] transition-all text-xs font-mono font-bold tracking-[0.2em] uppercase relative pb-2 group">
                     Skills
                     <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#c85a2d] opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -208,6 +293,10 @@
             <!-- Mobile Nav -->
             <nav id="mobile-nav" class="hidden md:hidden absolute top-full left-0 w-full bg-[#faf6ee] shadow-xl flex flex-col items-center py-6 gap-6 border-b border-[#dfd5c4]">
                 <button type="button" onclick="document.getElementById('mobile-nav').classList.add('hidden'); openResumeModal()" class="text-[#0d1b2a] hover:text-[#c85a2d] font-mono text-xs font-bold tracking-[0.2em] uppercase cursor-pointer">Resume</button>
+                <button type="button" onclick="document.getElementById('mobile-nav').classList.add('hidden'); openTerminalModal()" class="text-[#0d1b2a] hover:text-[#c85a2d] font-mono text-xs font-bold tracking-[0.2em] uppercase cursor-pointer flex items-center gap-1.5">
+                    <span class="text-[#c85a2d] font-bold">&gt;_</span>
+                    <span>Terminal</span>
+                </button>
                 <a href="#skills" onclick="document.getElementById('mobile-nav').classList.add('hidden')" class="text-[#0d1b2a] hover:text-[#c85a2d] font-mono text-xs font-bold tracking-[0.2em] uppercase">Skills</a>
                 <a href="#experience" onclick="document.getElementById('mobile-nav').classList.add('hidden')" class="text-[#0d1b2a] hover:text-[#c85a2d] font-mono text-xs font-bold tracking-[0.2em] uppercase">Experience</a>
                 <a href="#education" onclick="document.getElementById('mobile-nav').classList.add('hidden')" class="text-[#0d1b2a] hover:text-[#c85a2d] font-mono text-xs font-bold tracking-[0.2em] uppercase">Education</a>
@@ -252,7 +341,7 @@
                         </div>
 
                         <p class="text-[#524c44] font-sans text-sm sm:text-base leading-relaxed mb-8 max-w-xl">
-                            Administering enterprise Linux environments, automating server configurations with Ansible and Terraform, managing cloud infrastructure on AWS, and maintaining mission-critical server reliability.
+                            Administering enterprise Linux environments, automating CI/CD pipelines with GitHub Actions, orchestrating Kubernetes and Helm deployments, managing cloud infrastructure on AWS, and maintaining mission-critical server reliability.
                         </p>
 
                         <!-- Stamp Badge & Signature -->
@@ -277,6 +366,10 @@
                                 <button type="button" onclick="openResumeModal()" class="inline-flex items-center gap-2 px-3.5 py-2 font-mono text-xs font-bold text-[#c85a2d] bg-[#fbeee7] border border-[#c85a2d]/40 rounded-xl hover:bg-[#c85a2d] hover:text-white transition-all shadow-sm cursor-pointer">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                                     <span>Resume</span>
+                                </button>
+                                <button type="button" onclick="openTerminalModal()" class="inline-flex items-center gap-2 px-3.5 py-2 font-mono text-xs font-bold text-[#0d1b2a] bg-white border border-[#dfd5c4] rounded-xl hover:bg-[#c85a2d] hover:text-white hover:border-[#c85a2d] transition-all shadow-sm cursor-pointer group">
+                                    <span class="text-[#c85a2d] font-bold text-[12px] group-hover:text-white">&gt;_</span>
+                                    <span>Terminal</span>
                                 </button>
                                 <a href="mailto:madhusudhan.vellore@gmail.com" class="inline-flex items-center gap-2 px-3.5 py-2 font-mono text-xs font-bold text-[#0d1b2a] bg-white border border-[#dfd5c4] rounded-xl hover:bg-[#c85a2d] hover:text-white hover:border-[#c85a2d] transition-all shadow-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -314,7 +407,7 @@
                                         <span class="font-mono text-[11px] font-bold text-[#c85a2d] uppercase">MODULE 01 — Linux Administration</span>
                                         <span class="text-[10px] font-mono bg-[#c85a2d]/10 text-[#c85a2d] px-2 py-0.5 rounded font-bold">SYS</span>
                                     </div>
-                                    <div class="text-xs font-bold text-[#0d1b2a]">RHEL / Ubuntu • Bash • Systemd</div>
+                                    <div class="text-xs font-bold text-[#0d1b2a]">RHEL / Ubuntu • Shell / Automation • Systemd</div>
                                     <div class="text-[11px] text-[#524c44] mt-0.5">Kernel tuning, security hardening, user access & storage</div>
                                 </div>
 
@@ -333,7 +426,7 @@
                                         <span class="font-mono text-[11px] font-bold text-[#c85a2d] uppercase">MODULE 02 — Cloud & IaC Automation</span>
                                         <span class="text-[10px] font-mono bg-[#c85a2d]/10 text-[#c85a2d] px-2 py-0.5 rounded font-bold">OPS</span>
                                     </div>
-                                    <div class="text-xs font-bold text-[#0d1b2a]">AWS • Terraform • Ansible • Docker</div>
+                                    <div class="text-xs font-bold text-[#0d1b2a]">AWS • Terraform • Kubernetes + Helm • Docker</div>
                                     <div class="text-[11px] text-[#524c44] mt-0.5">Automated provisioning, config management, container runtime</div>
                                 </div>
 
@@ -414,22 +507,23 @@
                         <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Systems</span>
                     </div>
 
-                    <!-- Bash -->
+                    <!-- GitHub Actions -->
                     <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-5 flex flex-col items-center justify-center hover:border-[#c85a2d] hover:-translate-y-1 transition-all shadow-sm reveal group">
                         <div class="w-14 h-14 flex items-center justify-center mb-3">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform" alt="Bash" />
+                            <img src="githubactions.svg" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg'" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform" alt="GitHub Actions" />
                         </div>
-                        <span class="text-[#0d1b2a] font-bold text-sm text-center">Bash</span>
-                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Shell Scripting</span>
+                        <span class="text-[#0d1b2a] font-bold text-sm text-center">GitHub Actions</span>
+                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">CI/CD</span>
                     </div>
 
-                    <!-- Ansible -->
+                    <!-- Kubernetes + Helm -->
                     <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-5 flex flex-col items-center justify-center hover:border-[#c85a2d] hover:-translate-y-1 transition-all shadow-sm reveal group">
-                        <div class="w-14 h-14 flex items-center justify-center mb-3">
-                            <img src="ansible.svg" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg'" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform" alt="Ansible" />
+                        <div class="flex items-center justify-center gap-2 mb-3 h-14">
+                            <img src="kubernetes.svg" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg'" class="w-9 h-9 object-contain group-hover:scale-110 transition-transform" alt="Kubernetes" />
+                            <img src="helm.svg" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/helm/helm-original.svg'" class="w-9 h-9 object-contain group-hover:scale-110 transition-transform" alt="Helm" />
                         </div>
-                        <span class="text-[#0d1b2a] font-bold text-sm text-center">Ansible</span>
-                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Automation</span>
+                        <span class="text-[#0d1b2a] font-bold text-sm text-center">Kubernetes + Helm</span>
+                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Orchestration</span>
                     </div>
 
                     <!-- AWS -->
@@ -477,13 +571,13 @@
                         <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Containers</span>
                     </div>
 
-                    <!-- Kubernetes -->
+                    <!-- Nginx -->
                     <div class="ticket-card bg-[#faf6ee] border border-[#dfd5c4] rounded-2xl p-5 flex flex-col items-center justify-center hover:border-[#c85a2d] hover:-translate-y-1 transition-all shadow-sm reveal group">
                         <div class="w-14 h-14 flex items-center justify-center mb-3">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform" alt="Kubernetes" />
+                            <img src="nginx.svg" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg'" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform" alt="Nginx" />
                         </div>
-                        <span class="text-[#0d1b2a] font-bold text-sm text-center">Kubernetes</span>
-                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Orchestration</span>
+                        <span class="text-[#0d1b2a] font-bold text-sm text-center">Nginx</span>
+                        <span class="text-[10px] font-mono text-[#c85a2d] uppercase tracking-wider mt-0.5">Web Server</span>
                     </div>
 
                     <!-- Go -->
@@ -602,12 +696,24 @@
         </footer>
     </div>
 
-    <!-- Floating Home Button -->
-    <a href="#" class="fixed bottom-8 right-8 z-[90] bg-[#faf6ee] border-2 border-[#dfd5c4] text-[#0d1b2a] p-3 rounded-full shadow-lg hover:bg-[#2563eb] hover:text-white hover:border-[#2563eb] transition-all duration-200 group flex items-center justify-center cursor-pointer" style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;" id="scroll-to-top" title="Scroll to top">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
-    </a>
+    <!-- Floating Quick Terminal & Scroll To Top Controls -->
+    <div class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-[90] flex flex-col items-center gap-3">
+        <!-- Floating Quick Terminal Button -->
+        <button type="button" onclick="openTerminalModal()" class="w-12 h-12 sm:w-13 sm:h-13 bg-[#faf6ee] border-2 border-[#dfd5c4] text-[#0d1b2a] rounded-full shadow-xl hover:bg-[#c85a2d] hover:text-white hover:border-[#c85a2d] transition-all duration-200 group flex items-center justify-center cursor-pointer font-mono font-black relative" title="Quick Terminal (CLI)">
+            <span class="text-sm sm:text-base tracking-tighter group-hover:scale-110 transition-transform">&gt;_</span>
+            <!-- Desktop Tooltip -->
+            <span class="absolute right-full mr-3 px-2 py-1 bg-[#0d1b2a] text-[#faf6ee] text-[10px] font-mono font-bold rounded-lg uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-md hidden sm:block">
+                Terminal CLI
+            </span>
+        </button>
+
+        <!-- Floating Scroll To Top Arrow Button -->
+        <a href="#" class="w-12 h-12 sm:w-13 sm:h-13 bg-[#faf6ee] border-2 border-[#dfd5c4] text-[#0d1b2a] rounded-full shadow-xl hover:bg-[#c85a2d] hover:text-white hover:border-[#c85a2d] transition-all duration-200 group flex items-center justify-center cursor-pointer" style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;" id="scroll-to-top" title="Scroll to top">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 transform group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+        </a>
+    </div>
 
     <script>
         window.addEventListener('scroll', function() {
