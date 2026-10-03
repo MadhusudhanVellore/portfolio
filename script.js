@@ -68,136 +68,96 @@ let commandHistory = [];
 let historyIndex = -1;
 const AVAILABLE_COMMANDS = ['help', 'skills', 'education', 'experience', 'who', 'whoami', 'contact', 'resume', 'clear', 'date', 'pwd', 'uname', 'exit'];
 
-// Detailed telemetry & descriptions for skills
-const SKILLS_DETAILS = {
+// Authoritative 3-line Google/industry definitions for technologies (not personal resume results)
+const SKILLS_DEFINITIONS = {
     'linux': {
-        name: 'Linux Administration',
-        category: 'Operating Systems & Kernel',
-        tag: 'CORE SYSADMIN',
-        proficiency: 'Advanced / Enterprise Production Ready (7+ Months at Mavenir VMAS)',
-        points: [
-            'Enterprise distribution administration across Red Hat Enterprise Linux (RHEL), CentOS, and Ubuntu Server.',
-            'Systemd service unit lifecycle, daemon supervision, cgroups, target levels, and boot sequence troubleshooting.',
-            'Storage management: Logical Volume Manager (LVM), disk partitioning, file system integrity (ext4, xfs), and mount topologies.',
-            'Security hardening: file permissions (chmod, chown, sticky bits), PAM authentication, sudoers configuration, and SSH key management.',
-            'Performance tuning: load average diagnostics, kernel parameters (/etc/sysctl.conf), swap optimization, and OOM killer triage.'
+        name: 'Linux',
+        tag: 'OPERATING SYSTEM',
+        lines: [
+            'Linux is an open-source, Unix-like operating system kernel that manages computer hardware and coordinates system processes.',
+            'It provides a modular, multi-user, and multi-tasking architecture powered by command-line shells, systemd, and monolithic kernel services.',
+            'Widely used across global cloud servers, container runtimes, mainframe enterprise systems, and embedded devices.'
         ]
     },
     'github-actions': {
         name: 'GitHub Actions',
-        category: 'Continuous Integration & Continuous Delivery (CI/CD)',
-        tag: 'CI/CD AUTOMATION',
-        proficiency: 'Pipeline Governance & Automated Workflows',
-        points: [
-            'Authoring event-driven workflow YAML definitions (push, pull_request, workflow_dispatch, schedules).',
-            'Automated build, test, lint, and deployment pipelines targeting staging and production clusters.',
-            'Multi-stage jobs, workflow artifact archiving, matrix builds across operating systems and runtimes.',
-            'GitHub Secrets management, environment protection rules, and OIDC federated deployment credentials.',
-            'Integration with container registries (GHCR, Docker Hub, AWS ECR) and automated Helm release deployments.'
+        tag: 'CI/CD PLATFORM',
+        lines: [
+            'GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform integrated natively within GitHub repositories.',
+            'It automates software development workflows—including building, testing, linting, packaging, and deploying code—using event-driven YAML pipelines.',
+            'Enables developers to execute matrix builds, manage environment secrets, and deploy software across multi-cloud environments.'
         ]
     },
     'kubernetes': {
         name: 'Kubernetes & Helm',
-        category: 'Container Orchestration & Package Management',
-        tag: 'ORCHESTRATION',
-        proficiency: 'Cluster Operations & Release Packaging',
-        points: [
-            'Managing Kubernetes resources: Pods, Deployments, ReplicaSets, StatefulSets, DaemonSets, and CronJobs.',
-            'Service discovery & traffic routing: ClusterIP, NodePort, LoadBalancer, and Ingress controllers.',
-            'ConfigMaps and Secrets separation for secure, decoupled environment configuration injection.',
-            'Helm chart packaging, release templating, values overriding, versioned rollouts, and deterministic rollbacks.',
-            'Troubleshooting pod crash loops (CrashLoopBackOff), OOMKilled events, resource quotas, and liveness/readiness probes.'
+        tag: 'CONTAINER ORCHESTRATION',
+        lines: [
+            'Kubernetes is an open-source container orchestration platform designed to automate the deployment, scaling, and management of containerized applications.',
+            'Helm is the dedicated package manager for Kubernetes that defines, versions, installs, and manages complex cluster applications using charts.',
+            'Together they deliver automated self-healing, horizontal autoscaling, service discovery, declarative rollouts, and deterministic rollbacks.'
         ]
     },
     'aws': {
         name: 'Amazon Web Services (AWS)',
-        category: 'Cloud Infrastructure & Networking',
-        tag: 'CLOUD INFRASTRUCTURE',
-        proficiency: 'Cloud Operations & Systems Administration',
-        points: [
-            'Compute & Scaling: Amazon EC2 instance provisioning, AMI lifecycle, user-data automation, and Auto Scaling Groups.',
-            'Networking & Security: VPC design, public/private subnets, Internet Gateways, NAT Gateways, Route Tables, and Security Groups.',
-            'Identity & Access Management (IAM): Least-privilege IAM policies, instance profiles, roles, and MFA security enforcement.',
-            'Storage & Databases: EBS volume types, snapshots, S3 bucket policies, lifecycle rules, and RDS instance operations.',
-            'Monitoring & Telemetry: AWS CloudWatch metric alarms, dashboarding, and CloudTrail auditing.'
+        tag: 'CLOUD COMPUTING',
+        lines: [
+            'Amazon Web Services (AWS) is a comprehensive, globally distributed cloud computing platform offering on-demand infrastructure and APIs.',
+            'It supplies core building blocks such as elastic virtual servers (EC2), scalable object storage (S3), and isolated virtual private clouds (VPC).',
+            'Adopted worldwide to host scalable web services, enterprise databases, big data pipelines, and mission-critical cloud solutions.'
         ]
     },
     'terraform': {
-        name: 'Terraform (IaC)',
-        category: 'Infrastructure as Code',
-        tag: 'DECLARATIVE IaC',
-        proficiency: 'Declarative Provisioning & State Governance',
-        points: [
-            'Declarative HCL (HashiCorp Configuration Language) architecture for reproducible multi-tier infrastructure.',
-            'State management: remote state backends (S3 with DynamoDB state locking), state migration, and drift detection.',
-            'Modular architecture: reusable Terraform modules with strict input variables, locals, and structured outputs.',
-            'Execution workflow mastery: plan dry-runs, targeted apply runs (-target), taint lifecycles, and destroy safety controls.',
-            'Provider orchestration across AWS cloud resources, DNS routing, and security groups.'
+        name: 'Terraform',
+        tag: 'INFRASTRUCTURE AS CODE',
+        lines: [
+            'Terraform is an open-source Infrastructure as Code (IaC) tool created by HashiCorp for provisioning and managing multi-cloud resources.',
+            'It utilizes declarative HashiCorp Configuration Language (HCL) to generate deterministic execution plans and track state across cloud providers.',
+            'Ensures reproducible infrastructure lifecycle management, automated drift detection, and modular, collaborative infrastructure engineering.'
         ]
     },
     'docker': {
         name: 'Docker',
-        category: 'Containerization & Runtime',
-        tag: 'CONTAINERS',
-        proficiency: 'Container Lifecycle & Image Optimization',
-        points: [
-            'Multi-stage Dockerfile engineering to minimize image surface area and optimize layer cache utilization.',
-            'Container runtime lifecycle management, health check directives, entrypoint scripts, and signal handling (SIGTERM).',
-            'Docker networking: bridge networks, host networking, container port mapping, and DNS resolution.',
-            'Persistent storage: bind mounts vs named volumes, volume backups, and container permission isolation.',
-            'Docker Compose orchestration for multi-container development and local staging simulation.'
+        tag: 'CONTAINERIZATION',
+        lines: [
+            'Docker is an open-source platform that packages applications and their complete runtime dependencies into portable, isolated containers.',
+            'It shares the host operating system kernel to achieve rapid startup times, minimal resource overhead, and strict environment parity.',
+            'Standardizes development-to-production lifecycles, microservices architecture, and modern cloud-native software delivery.'
         ]
     },
     'nginx': {
-        name: 'Nginx Web Server',
-        category: 'Web Serving & Edge Reverse Proxy',
-        tag: 'WEB & REVERSE PROXY',
-        proficiency: 'High-Concurrency Ingress & Traffic Management',
-        points: [
-            'Reverse proxy and load balancing: upstream clusters, round-robin, least-conn, and failover algorithms.',
-            'SSL/TLS termination: modern cipher suites, HTTP/2 enforcement, and Let\'s Encrypt automated certificate renewals.',
-            'Virtual host configuration (server blocks), location regex routing, rewrite directives, and custom error pages.',
-            'Performance tuning: worker_processes, worker_connections, epoll event model, keepalive timeouts, and gzip compression.',
-            'Security controls: rate limiting, IP whitelisting/blacklisting, DDoS mitigation, and security response headers.'
+        name: 'Nginx',
+        tag: 'WEB SERVER & REVERSE PROXY',
+        lines: [
+            'Nginx is an open-source, high-performance HTTP web server, reverse proxy, mail proxy, and generic TCP/UDP load balancer.',
+            'It employs an asynchronous, event-driven, non-blocking architecture capable of handling tens of thousands of concurrent connections with minimal memory.',
+            'Routinely deployed at the network edge for SSL/TLS termination, static content acceleration, caching, and upstream traffic routing.'
         ]
     },
     'python': {
         name: 'Python Scripting',
-        category: 'Automation & Systems Tooling',
-        tag: 'SCRIPTING & AUTOMATION',
-        proficiency: 'Sysadmin Automation & Telemetry Parsing',
-        points: [
-            'Automation scripts for server health audits, system metrics collection, and disk space monitoring.',
-            'Log parsing & aggregation: regex log filtering, error extraction, JSON/CSV structured report generation.',
-            'CLI utilities and operational tooling utilizing standard libraries (os, sys, subprocess, argparse, requests).',
-            'REST API interactions for ticketing integrations, Slack alerts, and external monitoring webhook triggers.',
-            'Automated maintenance scripts for backups, log rotation cleanup, and remote task execution.'
+        tag: 'PROGRAMMING & SCRIPTING',
+        lines: [
+            'Python is a high-level, general-purpose interpreted programming language recognized for its clear syntax, readability, and versatile standard library.',
+            'It offers powerful built-in modules for operating system interactions, process automation, regex parsing, network requests, and data manipulation.',
+            'Globally adopted for systems administration scripts, DevOps automation, cloud tooling, backend web APIs, and data science workflows.'
         ]
     },
     'wireshark': {
         name: 'Wireshark & Tshark',
-        category: 'Network Packet Inspection & Troubleshooting',
-        tag: 'PACKET ANALYSIS',
-        proficiency: 'Network Diagnostics & Root Cause Analysis',
-        points: [
-            'Deep packet inspection (DPI) of TCP/IP stack layers: Ethernet, IP, TCP, UDP, DNS, HTTP, and VoIP protocols.',
-            'Command-line capture using Tshark and tcpdump on headless Linux servers for remote traffic triage.',
-            'Diagnosing network latency, TCP retransmissions, duplicate ACKs, window scaling, and connection resets (RST).',
-            'Applying display and capture filters to isolate suspicious traffic, protocol anomalies, and handshake failures.',
-            'Production root cause analysis (RCA) on distributed server network communication bottlenecks.'
+        tag: 'NETWORK PROTOCOL ANALYZER',
+        lines: [
+            'Wireshark is the world\'s leading open-source network protocol packet analyzer used for real-time traffic capture and network troubleshooting.',
+            'It captures packets passing through network interfaces and decodes hundreds of transport, internet, and application layer protocols in microscopic detail.',
+            'Essential for diagnosing network latency, dropped packets, TCP retransmissions, handshake failures, and communication bottlenecks.'
         ]
     },
     'git': {
         name: 'Git & GitHub',
-        category: 'Distributed Version Control & Collaboration',
-        tag: 'VERSION CONTROL',
-        proficiency: 'Branching Strategy, GitOps & Code Governance',
-        points: [
-            'Distributed version control workflows: Git Flow, trunk-based development, feature branching, and pull requests.',
-            'Advanced Git operations: interactive rebase, cherry-pick, merge conflict resolution, reflog recovery, and stash management.',
-            'Repository administration: branch protection rules, code review enforcement, status checks, and tag releases.',
-            'Git hooks and automation integration for pre-commit linting, security scans, and conventional commit adherence.',
-            'Infrastructure repository management for Terraform configurations and Kubernetes manifests.'
+        tag: 'VERSION CONTROL & COLLABORATION',
+        lines: [
+            'Git is an open-source distributed version control system engineered for speed, data integrity, and support for non-linear distributed workflows.',
+            'GitHub is a web-based hosting platform providing Git repository management, pull request code reviews, issue tracking, and team collaboration.',
+            'Forms the foundational backbone of modern software engineering, branch management, release tagging, and GitOps deployments.'
         ]
     }
 };
@@ -241,7 +201,7 @@ function resetTerminalToFreshState() {
                     Session: flight-deck-tty1 | Verified OK 2026
                 </div>
                 <div class="text-[#c85a2d] text-xs pt-1 font-mono font-semibold">
-                    ➜ Type <span class="text-[#0d1b2a] font-bold underline cursor-pointer hover:text-[#c85a2d]" onclick="executeTerminalCommand('help')">'help'</span> to view commands or tap the quick pills above.
+                    ➜ Type <span class="text-[#0d1b2a] font-bold underline cursor-pointer hover:text-[#c85a2d]" onclick="executeTerminalCommand('help')">'help'</span>, <span class="text-[#0d1b2a] font-bold underline cursor-pointer hover:text-[#c85a2d]" onclick="executeTerminalCommand('skills')">'skills'</span>, or <span class="text-[#0d1b2a] font-bold underline cursor-pointer hover:text-[#c85a2d]" onclick="executeTerminalCommand('skills linux')">'skills linux'</span> for details.
                 </div>
             </div>
         `;
@@ -356,45 +316,40 @@ function appendTerminalPromptLine(cmd) {
     output.appendChild(line);
 }
 
+// Renders the authoritative 3-line Google/industry definition for a technology
 function renderSkillDetailCard(skillKey) {
-    const skill = SKILLS_DETAILS[skillKey];
+    const skill = SKILLS_DEFINITIONS[skillKey];
     if (!skill) return '';
 
     return `
         <div class="bg-[#f4ece0] border-2 border-[#dfd5c4] p-4 sm:p-5 rounded-2xl font-mono space-y-3 shadow-xs">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2.5 border-b border-[#dfd5c4]">
-                <div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-base sm:text-lg font-black text-[#0d1b2a]">${skill.name}</span>
-                        <span class="text-[10px] bg-[#c85a2d]/10 text-[#c85a2d] border border-[#c85a2d]/30 font-bold px-2 py-0.5 rounded uppercase tracking-wider">${skill.tag}</span>
-                    </div>
-                    <span class="text-xs text-[#524c44] font-medium block mt-0.5">${skill.category}</span>
+            <div class="flex items-center justify-between pb-2 border-b border-[#dfd5c4]">
+                <div class="flex items-center gap-2">
+                    <span class="text-base sm:text-lg font-black text-[#0d1b2a]">${skill.name}</span>
+                    <span class="text-[10px] bg-[#c85a2d]/10 text-[#c85a2d] border border-[#c85a2d]/30 font-bold px-2 py-0.5 rounded uppercase tracking-wider">${skill.tag}</span>
                 </div>
-                <div class="text-[11px] font-bold text-[#c85a2d] bg-white px-2.5 py-1 rounded-lg border border-[#dfd5c4] whitespace-nowrap self-start">
-                    VERIFIED CANDIDATE
-                </div>
+                <span class="text-[10px] text-[#524c44] font-bold uppercase bg-white px-2 py-0.5 rounded border border-[#dfd5c4]">3-LINE DEFINITION</span>
             </div>
 
-            <div class="bg-white p-3 rounded-xl border border-[#dfd5c4] shadow-xs">
-                <span class="text-[#524c44] text-[10px] uppercase font-bold block mb-1 tracking-wider">Proficiency Level</span>
-                <span class="text-[#0d1b2a] text-xs font-bold">${skill.proficiency}</span>
-            </div>
-
-            <div class="space-y-2 pt-1">
-                <span class="text-[#524c44] text-[10px] uppercase font-bold block tracking-wider">Key Directives & Production Competencies:</span>
-                <div class="space-y-1.5 text-xs text-[#0d1b2a]">
-                    ${skill.points.map(pt => `
-                        <div class="flex items-start gap-2 bg-white/70 p-2 rounded-lg border border-[#dfd5c4]">
-                            <span class="text-[#c85a2d] font-bold shrink-0">▸</span>
-                            <span class="leading-relaxed">${pt}</span>
-                        </div>
-                    `).join('')}
+            <!-- 3 Lines Google Definition -->
+            <div class="space-y-2 text-xs sm:text-sm text-[#0d1b2a]">
+                <div class="p-3 bg-white rounded-xl border border-[#dfd5c4] flex items-start gap-2.5 shadow-xs leading-relaxed">
+                    <span class="text-[#c85a2d] font-bold text-xs shrink-0 select-none">[1]</span>
+                    <span>${skill.lines[0]}</span>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-[#dfd5c4] flex items-start gap-2.5 shadow-xs leading-relaxed">
+                    <span class="text-[#c85a2d] font-bold text-xs shrink-0 select-none">[2]</span>
+                    <span>${skill.lines[1]}</span>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-[#dfd5c4] flex items-start gap-2.5 shadow-xs leading-relaxed">
+                    <span class="text-[#c85a2d] font-bold text-xs shrink-0 select-none">[3]</span>
+                    <span>${skill.lines[2]}</span>
                 </div>
             </div>
 
             <div class="pt-2 border-t border-[#dfd5c4] flex flex-wrap items-center justify-between gap-2 text-[11px] text-[#524c44]">
-                <span>Type <code class="text-[#c85a2d] font-bold cursor-pointer underline" onclick="executeTerminalCommand('skills')">skills</code> to return to skills overview</span>
-                <span class="text-[#c85a2d] font-bold">STATUS: PRODUCTION TESTED</span>
+                <span>Type <code class="text-[#c85a2d] font-bold cursor-pointer underline" onclick="executeTerminalCommand('skills')">skills</code> to view all skill names</span>
+                <span class="text-[#c85a2d] font-bold uppercase">STANDARD GOOGLE DEFINITION</span>
             </div>
         </div>
     `;
@@ -425,7 +380,7 @@ function processTerminalCommand(rawCommand) {
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                         <div class="p-2.5 rounded-xl bg-white border border-[#dfd5c4] shadow-xs">
                             <span class="text-[#c85a2d] font-bold font-mono">skills [skill_name]</span>
-                            <p class="text-[#524c44] mt-0.5">List skill names or inspect detailed info (e.g. <code class="text-[#0d1b2a] font-bold cursor-pointer" onclick="executeTerminalCommand('skills linux')">skills linux</code>)</p>
+                            <p class="text-[#524c44] mt-0.5">List skill names or get 3-line Google definition (e.g. <code class="text-[#0d1b2a] font-bold cursor-pointer" onclick="executeTerminalCommand('skills linux')">skills linux</code>)</p>
                         </div>
                         <div class="p-2.5 rounded-xl bg-white border border-[#dfd5c4] shadow-xs">
                             <span class="text-[#c85a2d] font-bold font-mono">education</span>
@@ -463,17 +418,17 @@ function processTerminalCommand(rawCommand) {
 
         case 'skills':
         case 'ls':
-            // If argument is passed: "skills skill_name gives detailed information about that skills"
+            // If argument is passed: "skills skill_name gives 3 lines Google definition"
             if (arg) {
                 const resolvedKey = resolveSkillKey(arg);
-                if (resolvedKey && SKILLS_DETAILS[resolvedKey]) {
+                if (resolvedKey && SKILLS_DEFINITIONS[resolvedKey]) {
                     resultBox.innerHTML = renderSkillDetailCard(resolvedKey);
                 } else {
                     resultBox.innerHTML = `
                         <div class="bg-[#f4ece0] border border-[#dfd5c4] p-3.5 rounded-2xl font-mono text-xs space-y-2 shadow-xs">
-                            <div class="text-[#c85a2d] font-bold">Skill '${escapeHtml(arg)}' not recognized in registry.</div>
+                            <div class="text-[#c85a2d] font-bold">Skill '${escapeHtml(arg)}' not recognized.</div>
                             <div class="text-[#524c44] text-[11px] leading-relaxed">
-                                Available skill profiles:
+                                Available skills for 3-line definitions:
                                 <div class="flex flex-wrap gap-1.5 mt-1.5">
                                     <button onclick="executeTerminalCommand('skills linux')" class="px-2 py-0.5 bg-white border border-[#dfd5c4] rounded text-[#0d1b2a] font-bold hover:bg-[#c85a2d] hover:text-white cursor-pointer">linux</button>
                                     <button onclick="executeTerminalCommand('skills github-actions')" class="px-2 py-0.5 bg-white border border-[#dfd5c4] rounded text-[#0d1b2a] font-bold hover:bg-[#c85a2d] hover:text-white cursor-pointer">github-actions</button>
@@ -531,7 +486,7 @@ function processTerminalCommand(rawCommand) {
                             </button>
                         </div>
                         <div class="pt-2 border-t border-[#dfd5c4] text-[11px] text-[#524c44] flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                            <span>💡 Tip: Click any skill above or type <code class="text-[#c85a2d] font-bold">skills &lt;name&gt;</code> (e.g. <span class="underline cursor-pointer text-[#0d1b2a] font-bold" onclick="executeTerminalCommand('skills linux')">skills linux</span>) for details.</span>
+                            <span>💡 Tip: Click any skill above or type <code class="text-[#c85a2d] font-bold">skills &lt;name&gt;</code> (e.g. <span class="underline cursor-pointer text-[#0d1b2a] font-bold" onclick="executeTerminalCommand('skills linux')">skills linux</span>) for 3-line Google definitions.</span>
                         </div>
                     </div>
                 `;
@@ -711,9 +666,9 @@ function processTerminalCommand(rawCommand) {
             return;
 
         default:
-            // Check if the user directly typed a skill name as a command (e.g. 'linux', 'aws', 'docker')
+            // Check if user directly typed a skill name as a command (e.g. 'linux', 'aws', 'docker')
             const directSkillKey = resolveSkillKey(command);
-            if (directSkillKey && SKILLS_DETAILS[directSkillKey]) {
+            if (directSkillKey && SKILLS_DEFINITIONS[directSkillKey]) {
                 resultBox.innerHTML = renderSkillDetailCard(directSkillKey);
                 output.appendChild(resultBox);
                 break;
